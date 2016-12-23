@@ -1,0 +1,14 @@
+{
+	"name": "htmlHelper",
+	"license": "MIT",
+	"tags": ["canvas","svg"],
+	"description": "htmlHelper provides abstracts and setups to help with html",
+	"contributors": [
+    "Nanjizal"
+  ],
+	"releasenote": "See https://github.com/nanjizal/htmlHelper/blob/master/readme.md",
+	"version": "0.0.1",
+	"url": "https://github.com/nanjizal/htmlHelper",
+	"classPath": "/",
+	"dependencies": {}
+}
