@@ -1,4 +1,4 @@
-package canvas;
+package htmlHelper.canvas;
 import js.html.CanvasRenderingContext2D;
 abstract Surface( CanvasRenderingContext2D ) from CanvasRenderingContext2D to CanvasRenderingContext2D {
     inline public function new( surface_: CanvasRenderingContext2D ){
