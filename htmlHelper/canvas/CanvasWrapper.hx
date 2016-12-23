@@ -1,4 +1,4 @@
-package canvas;
+package htmlHelper.canvas;
 import js.html.CanvasElement;
 import js.Browser;
 @:forward( width, height, getContext2d )
