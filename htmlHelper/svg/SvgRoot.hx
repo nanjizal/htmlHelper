@@ -4,7 +4,7 @@ import js.html.svg.SVGElement;
 import js.html.Element;
 import js.html.CSSStyleDeclaration;
 import js.html.Node;
-@:forward( appendChild, removeChild, addEventListener, removeEventListener )
+@:forward( appendChild, removeChild )
 abstract SvgRoot( SVGElement ) from SVGElement to SVGElement {
     inline public static var svgNameSpace: String = "http://www.w3.org/2000/svg" ;
     inline public function new( ?e: SVGElement ){
