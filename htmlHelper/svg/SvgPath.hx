@@ -1,6 +1,7 @@
 package htmlHelper.svg;
 import js.Browser;
 import js.html.svg.PathElement;
+@:forward( addEventListener, removeEventListener )
 abstract SvgPath( PathElement ) from PathElement to PathElement {
     inline public function new( ?e: PathElement ){
         if( e == null ){
