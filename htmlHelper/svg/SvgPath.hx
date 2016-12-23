@@ -1,4 +1,4 @@
-package svg;
+package htmlHelper.svg;
 import js.Browser;
 import js.html.svg.PathElement;
 abstract SvgPath( PathElement ) from PathElement to PathElement {
