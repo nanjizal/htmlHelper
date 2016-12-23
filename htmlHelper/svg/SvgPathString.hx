@@ -1,4 +1,4 @@
-package svg;
+package html.svg;
 import StringTools;
 @:forward( length )
 abstract SvgPathString( String ) from String to String {
