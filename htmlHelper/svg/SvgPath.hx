@@ -15,7 +15,22 @@ abstract SvgPath( PathElement ) from PathElement to PathElement {
         var svgPath: PathElement = cast doc.createElementNS( SvgRoot.svgNameSpace, 'path' );
         return svgPath;
     }
-    public var fill( get, set ): Int;
+    public var x( get, set ): Int;
+    inline public function set_x( x_: Int ):Int {
+        this.setAttribute( "x", Std.string( x_ ) );
+        return( x_ );
+    }
+    inline public function get_x(): Int {
+        return Std.parseInt( this.getAttribute( "x" ) );
+    }
+    public var y( get, set ): Int;
+    inline public function set_y( y_: Int ):Int {
+        this.setAttribute( "y", Std.string( y_ ) );
+        return( y_ );
+    }
+    inline public function get_y(): Int {
+        return Std.parseInt( this.getAttribute( "y" ) );
+    }    public var fill( get, set ): Int;
     public inline function set_fill( v: Int ): Int{
         this.setAttribute( 'fill', '#' + StringTools.hex( v, 6 ));
         return v;
