@@ -4,12 +4,12 @@ import js.html.StyleElement;
 class CSSEnterFrame {
     var s: StyleElement;
     public var onFrame: Void -> Void;
-    public function new ( frameRate: Int ){
+    public function new (){
         s = Browser.document.createStyleElement();
         s.innerHTML = "@keyframes spin { from { transform:rotate( 0deg ); } to { transform:rotate( 360deg ); } }";
         Browser.document.getElementsByTagName("head")[0].appendChild( s );
         (cast s).animation = "spin 1s linear infinite";
-        loop( frameRate );
+        loop( 60 );
     }
     // TODO: improve
     public function destroy(){
