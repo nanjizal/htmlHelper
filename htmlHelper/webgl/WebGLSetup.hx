@@ -60,7 +60,7 @@ class WebGLSetup {
     public function setVerticesAndColors( vertices: Array<Float>, triangleColors: Array<UInt> ){
         var rgb: RGB;
         var colorAlpha = 1.0;
-        for (i in 0...Std.int(vertices.length / 3) ) {
+        for (i in 0...Std.int( vertices.length/3 ) ) {
             rgb = toRGB( triangleColors[ i ] );
             for( j in 0...3 ){  // works but...
                 colors.push( rgb.r );
@@ -74,7 +74,9 @@ class WebGLSetup {
     }
     public function render(){
         gl.clearColor( bgRed, bgGreen, bgBlue, bgAlpha );
-        gl.enable( RenderingContext.DEPTH_TEST );
+        //gl.enable( RenderingContext.DEPTH_TEST );
+        gl.enable( RenderingContext.CULL_FACE ); 
+        gl.cullFace( RenderingContext.BACK );
         gl.clear( RenderingContext.COLOR_BUFFER_BIT );
         gl.viewport( 0, 0, canvas.width, canvas.height );
         var modelViewProjectionID = gl.getUniformLocation( program, 'modelViewProjection' );
@@ -111,10 +113,10 @@ class WebGLSetup {
         gl.vertexAttribPointer( position, 3, RenderingContext.FLOAT, false, 0, 0 ); 
         gl.enableVertexAttribArray( position );
         gl.bindBuffer( RenderingContext.ARRAY_BUFFER, null );
-        var indexBuffer = gl.createBuffer(); // triangle indicies data 
-        gl.bindBuffer( RenderingContext.ELEMENT_ARRAY_BUFFER, indexBuffer );
-        gl.bufferData( RenderingContext.ELEMENT_ARRAY_BUFFER, new Uint16Array( indices ), RenderingContext.STATIC_DRAW );
-        gl.bindBuffer( RenderingContext.ELEMENT_ARRAY_BUFFER, null );
+        //var indexBuffer = gl.createBuffer(); // triangle indicies data 
+        //gl.bindBuffer( RenderingContext.ELEMENT_ARRAY_BUFFER, indexBuffer );
+        //gl.bufferData( RenderingContext.ELEMENT_ARRAY_BUFFER, new Uint16Array( indices ), RenderingContext.STATIC_DRAW );
+        //gl.bindBuffer( RenderingContext.ELEMENT_ARRAY_BUFFER, null );
     }
     
     static inline function uploadDataToBuffers( gl: RenderingContext, program: Program, vertices: Array<Float>, colors: Array<Float>, indices: Array<Int> ){
