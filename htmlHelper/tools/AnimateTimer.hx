@@ -30,8 +30,6 @@ class AnimateTimer {
         if( t > d ) return null;
         var b = 0;
         var c = e - b;
-        var out = f( t, b, c, d );
-        //if( out < 0 ) out = 0;
-        return out;
+        return f( t, b, c, d );
     }
 }
