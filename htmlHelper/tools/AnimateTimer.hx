@@ -26,10 +26,9 @@ class AnimateTimer {
         onFrame = null;
         s = null;
     }
-    public static inline function tweenIn( t: Float, d: Float, e: Float, f: Float->Float->Float->Float->Float ): Float {
+    public static inline function tween( t: Float, b: Float, e: Float, d: Float
+                                       , f: Float->Float->Float->Float->Float ): Float {
         if( t > d ) return null;
-        var b = 0;
-        var c = e - b;
-        return f( t, b, c, d );
+        return f( t, b, e - b, d );
     }
 }
