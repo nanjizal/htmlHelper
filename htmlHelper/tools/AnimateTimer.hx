@@ -22,6 +22,7 @@ class AnimateTimer {
         return true;
     }
     public static inline function kill(){
+        if( s == null ) return;        
         Browser.document.getElementsByTagName("head")[0].removeChild( s );
         onFrame = null;
         s = null;
