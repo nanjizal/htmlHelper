@@ -27,6 +27,7 @@ class AnimateTimer {
         onFrame = null;
         s = null;
     }
+    // if tween returns null you can kill, or set onFrame to null.
     public static inline function tween( t: Float, b: Float, e: Float, d: Float
                                        , f: Float->Float->Float->Float->Float ): Float {
         if( t > d ) return null;
