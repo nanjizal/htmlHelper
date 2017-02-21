@@ -56,7 +56,11 @@ class WebGLSetup {
         program = gl.createShaderProgram( vertex, fragment );
         return program;
     }
-    
+    public function clearVerticesAndColors(){
+        vertices = new Array<Float>();
+        indices = new Array<Int>();
+        colors = new Array<Float>();
+    }    
     public function setVerticesAndColors( vertices: Array<Float>, triangleColors: Array<UInt> ){
         var rgb: RGB;
         var colorAlpha = 1.0;
