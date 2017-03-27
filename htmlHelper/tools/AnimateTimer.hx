@@ -1,4 +1,5 @@
-import htmlHelper.tools;
+package htmlHelper.tools;
+import js.Browser;
 import js.html.StyleElement;
 class AnimateTimer {
     // called every frame
