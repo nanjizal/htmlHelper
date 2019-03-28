@@ -19,21 +19,24 @@ typedef RGB = {
     var b:Float;
 }
 class WebGLSetup {
-    public var gl: RenderingContext;
+    public var gl:      RenderingContext;
     public var program: Program;
-    public var width: Int;
-    public var height: Int;
-    public var canvas: CanvasElement;
-    public var bgRed = 1.;
+    public var width:   Int;
+    public var height:  Int;
+    public var canvas:  CanvasElement;
+    public var bgRed   = 1.;
     public var bgGreen = 1.;
-    public var bgBlue = 1.;
+    public var bgBlue  = 1.;
     public var bgAlpha = 1.;
+    public var DEPTH_TEST = true;
+    public var CULL_FACE  = true; 
+    public var BACK       = true;
     public var modelViewProjection = Matrix4.identity(); // external matrix controlling global 3d position
-    var matrix32Array = new Float32Array( ident() ); // internal matrix passed to shader
-    var vertices = new Array<Float>();
-    var triangleColors:Array<UInt>;
-    var indices = new Array<Int>();
-    var colors = new Array<Float>();
+    var matrix32Array              = new Float32Array( ident() ); // internal matrix passed to shader
+    var vertices                   = new Array<Float>();
+    var triangleColors:            Array<UInt>;
+    var indices                    = new Array<Int>();
+    var colors                     = new Array<Float>();
     public function new( width_: Int, height_: Int, autoChild: Bool = true ){
         width = width_;
         height = height_;
@@ -58,8 +61,8 @@ class WebGLSetup {
     }
     public function clearVerticesAndColors(){
         vertices = new Array<Float>();
-        indices = new Array<Int>();
-        colors = new Array<Float>();
+        indices  = new Array<Int>();
+        colors   = new Array<Float>();
     }    
     public function setVerticesAndColors( vertices: Array<Float>, triangleColors: Array<UInt> ){
         var rgb: RGB;
@@ -78,9 +81,9 @@ class WebGLSetup {
     }
     public function render(){
         gl.clearColor( bgRed, bgGreen, bgBlue, bgAlpha );
-        //gl.enable( RenderingContext.DEPTH_TEST );
-        gl.enable( RenderingContext.CULL_FACE ); 
-        gl.cullFace( RenderingContext.BACK );
+        if( DEPTH_TEST ) gl.enable( RenderingContext.DEPTH_TEST );
+        if( CULL_FACE ) gl.enable( RenderingContext.CULL_FACE ); 
+        if( BACK ) gl.cullFace( RenderingContext.BACK );
         gl.clear( RenderingContext.COLOR_BUFFER_BIT );
         gl.viewport( 0, 0, canvas.width, canvas.height );
         var modelViewProjectionID = gl.getUniformLocation( program, 'modelViewProjection' );
