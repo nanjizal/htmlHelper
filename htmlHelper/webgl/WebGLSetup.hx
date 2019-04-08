@@ -10,7 +10,8 @@ import js.html.webgl.Program;
 import js.html.webgl.UniformLocation;
 import js.html.Float32Array;
 import js.html.Uint16Array;
-import khaMath.Matrix4;
+import geom.Matrix4x4;
+import geom.Matrix1x4;
 import htmlHelper.webgl.WebGLSetup;
 using htmlHelper.webgl.WebGLSetup;
 typedef RGB = {
@@ -31,7 +32,7 @@ class WebGLSetup {
     public var DEPTH_TEST = true;
     public var CULL_FACE  = true; 
     public var BACK       = true;
-    public var modelViewProjection = Matrix4.identity(); // external matrix controlling global 3d position
+    public var modelViewProjection = Matrix4x4.unit(); // external matrix controlling global 3d position
     var matrix32Array              = new Float32Array( ident() ); // internal matrix passed to shader
     var vertices                   = new Array<Float>();
     var triangleColors:            Array<UInt>;
@@ -87,7 +88,7 @@ class WebGLSetup {
         gl.clear( RenderingContext.COLOR_BUFFER_BIT );
         gl.viewport( 0, 0, canvas.width, canvas.height );
         var modelViewProjectionID = gl.getUniformLocation( program, 'modelViewProjection' );
-        transferM4_arr32( matrix32Array, modelViewProjection );
+        modelViewProjection.toFloat32Array( matrix32Array );
         gl.uniformMatrix4fv( modelViewProjectionID, false, matrix32Array );
         gl.drawArrays( RenderingContext.TRIANGLES, 0, indices.length );
     }
@@ -156,9 +157,6 @@ class WebGLSetup {
             g: ((int >> 8) & 255) / 255,
             b: (int & 255) / 255
         }
-    }
-    public static inline function transferM4_arr32( arr: Float32Array, m: Matrix4 ) {
-        arr.set([ m._00, m._10, m._20, m._30, m._01, m._11, m._21, m._31, m._02, m._12, m._22, m._32, m._03, m._13, m._23, m._33 ]);
     }
     public static inline function ident(): Array<Float> {
         return [ 1.0, 0.0, 0.0, 0.0,
