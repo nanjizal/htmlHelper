@@ -8,10 +8,12 @@ import js.html.webgl.ContextAttributes;
 import js.html.webgl.Shader;
 import js.html.webgl.Program;
 import js.html.webgl.UniformLocation;
+#if (haxe_ver <= 4.0 )
 import js.html.Float32Array;
-import js.html.Uint16Array;
-import geom.Matrix4x3;
-import geom.Matrix1x4;
+#else
+import  js.lib.Float32Array;
+#end
+// import js.html.Uint16Array;
 import htmlHelper.webgl.WebGLSetup;
 using htmlHelper.webgl.WebGLSetup;
 typedef RGB = {
@@ -32,8 +34,7 @@ class WebGLSetup {
     public var DEPTH_TEST = true;
     public var CULL_FACE  = true; 
     public var BACK       = true;
-    public var modelViewProjection = Matrix4x3.unit(); // external matrix controlling global 3d position
-    var matrix32Array              = new Float32Array( ident() ); // internal matrix passed to shader
+    public var matrix32Array              = new Float32Array( ident() ); // internal matrix passed to shader
     var vertices                   = new Array<Float>();
     var triangleColors:            Array<UInt>;
     var indices                    = new Array<Int>();
@@ -88,7 +89,7 @@ class WebGLSetup {
         gl.clear( RenderingContext.COLOR_BUFFER_BIT );
         gl.viewport( 0, 0, canvas.width, canvas.height );
         var modelViewProjectionID = gl.getUniformLocation( program, 'modelViewProjection' );
-        modelViewProjection.toFloat32Array( matrix32Array );
+        /// you can update matrix32Array in the render loop.
         gl.uniformMatrix4fv( modelViewProjectionID, false, matrix32Array );
         gl.drawArrays( RenderingContext.TRIANGLES, 0, indices.length );
     }
