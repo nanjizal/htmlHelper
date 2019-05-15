@@ -24,9 +24,9 @@ class AnimateTimer {
     }
     public static inline function kill(){
         if( s == null ) return;        
-        Browser.document.getElementsByTagName("head")[0].removeChild( s );
+        Browser.document.getElementsByTagName( "head" )[ 0 ].removeChild( s );
         onFrame = null;
-        s = null;
+        s       = null;
     }
     // if tween returns null you can kill, or set onFrame to null.
     public static inline function tween( t: Float, b: Float, e: Float, d: Float

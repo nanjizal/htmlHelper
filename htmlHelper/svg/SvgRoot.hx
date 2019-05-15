@@ -21,7 +21,7 @@ abstract SvgRoot( SVGElement ) from SVGElement to SVGElement {
         style.paddingLeft = "0px";
         style.paddingTop = "0px";
         style.left = Std.string( 0 + 'px' );
-        style.top = Std.string( 0 + 'px' );
+        style.top  = Std.string( 0 + 'px' );
         style.position = "absolute";
         Browser.document.body.appendChild( element );
         var svgRoot: SvgRoot = svgElement;

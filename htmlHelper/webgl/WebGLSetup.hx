@@ -8,7 +8,7 @@ import js.html.webgl.ContextAttributes;
 import js.html.webgl.Shader;
 import js.html.webgl.Program;
 import js.html.webgl.UniformLocation;
-#if (haxe_ver <= 4.0 )
+#if (haxe_ver < 4.0 )
 import js.html.Float32Array;
 #else
 import  js.lib.Float32Array;
@@ -17,48 +17,48 @@ import  js.lib.Float32Array;
 import htmlHelper.webgl.WebGLSetup;
 using htmlHelper.webgl.WebGLSetup;
 typedef RGB = {
-    var r:Float;
-    var g:Float;
-    var b:Float;
+    var r: Float;
+    var g: Float;
+    var b: Float;
 }
 class WebGLSetup {
-    public var gl:      RenderingContext;
-    public var program: Program;
-    public var width:   Int;
-    public var height:  Int;
-    public var canvas:  CanvasElement;
-    public var bgRed   = 1.;
-    public var bgGreen = 1.;
-    public var bgBlue  = 1.;
-    public var bgAlpha = 1.;
-    public var DEPTH_TEST = true;
-    public var CULL_FACE  = true; 
-    public var BACK       = true;
-    public var matrix32Array              = new Float32Array( ident() ); // internal matrix passed to shader
-    var vertices                   = new Array<Float>();
-    var triangleColors:            Array<UInt>;
-    var indices                    = new Array<Int>();
-    var colors                     = new Array<Float>();
+    public var gl:             RenderingContext;
+    public var program:        Program;
+    public var width:          Int;
+    public var height:         Int;
+    public var canvas:         CanvasElement;
+    public var bgRed           = 1.;
+    public var bgGreen         = 1.;
+    public var bgBlue          = 1.;
+    public var bgAlpha         = 1.;
+    public var DEPTH_TEST      = true;
+    public var CULL_FACE       = true; 
+    public var BACK            = true;
+    public var matrix32Array   = new Float32Array( ident() ); // internal matrix passed to shader
+    var vertices               = new Array<Float>();
+    var triangleColors:        Array<UInt>;
+    var indices                = new Array<Int>();
+    var colors                 = new Array<Float>();
     public function new( width_: Int, height_: Int, autoChild: Bool = true ){
-        width = width_;
-        height = height_;
-        canvas = Browser.document.createCanvasElement();
-        canvas.width = width;
-        canvas.height = height;
-        var dom = cast canvas;
-        var style = dom.style;
+        width             = width_;
+        height            = height_;
+        canvas            = Browser.document.createCanvasElement();
+        canvas.width      = width;
+        canvas.height     = height;
+        var dom           = cast canvas;
+        var style         = dom.style;
         style.paddingLeft = "0px";
-        style.paddingTop = "0px";
-        style.left = Std.string( 0 + 'px' );
-        style.top = Std.string( 0 + 'px' );
-        style.position = "absolute";
+        style.paddingTop  = "0px";
+        style.left        = Std.string( 0 + 'px' );
+        style.top         = Std.string( 0 + 'px' );
+        style.position    = "absolute";
         if( autoChild ) Browser.document.body.appendChild( cast canvas );
         gl = canvas.getContextWebGL();
     }
     public function setupProgram( vertexString: String, fragmentString: String ): Program {
-        var vertex = gl.createVertexShader( vertexString );
+        var vertex   = gl.createVertexShader( vertexString );
         var fragment = gl.createFragmentShader( fragmentString );
-        program = gl.createShaderProgram( vertex, fragment );
+        program      = gl.createShaderProgram( vertex, fragment );
         return program;
     }
     public function clearVerticesAndColors(){
@@ -84,8 +84,8 @@ class WebGLSetup {
     public function render(){
         gl.clearColor( bgRed, bgGreen, bgBlue, bgAlpha );
         if( DEPTH_TEST ) gl.enable( RenderingContext.DEPTH_TEST );
-        if( CULL_FACE ) gl.enable( RenderingContext.CULL_FACE ); 
-        if( BACK ) gl.cullFace( RenderingContext.BACK );
+        if( CULL_FACE )  gl.enable( RenderingContext.CULL_FACE ); 
+        if( BACK )       gl.cullFace( RenderingContext.BACK );
         gl.clear( RenderingContext.COLOR_BUFFER_BIT );
         gl.viewport( 0, 0, canvas.width, canvas.height );
         var modelViewProjectionID = gl.getUniformLocation( program, 'modelViewProjection' );
@@ -95,13 +95,13 @@ class WebGLSetup {
     }
     static inline function createVertexShader( gl: RenderingContext, str: String ): Shader {
         var vertexShader = gl.createShader( RenderingContext.VERTEX_SHADER );
-        gl.shaderSource( vertexShader, str );
+        gl.shaderSource(  vertexShader, str );
         gl.compileShader( vertexShader );
         return vertexShader;
     }
     static inline function createFragmentShader( gl: RenderingContext, str: String ): Shader {
         var fragmentShader = gl.createShader( RenderingContext.FRAGMENT_SHADER );
-        gl.shaderSource( fragmentShader, str ); 
+        gl.shaderSource(  fragmentShader, str ); 
         gl.compileShader( fragmentShader );
         return fragmentShader;
     }
@@ -109,8 +109,8 @@ class WebGLSetup {
         var program = gl.createProgram();
         gl.attachShader( program, vertex );
         gl.attachShader( program, fragment );
-        gl.linkProgram( program );
-        gl.useProgram( program );
+        gl.linkProgram(  program );
+        gl.useProgram(   program );
         return program;
     }
     
@@ -130,7 +130,7 @@ class WebGLSetup {
     
     static inline function uploadDataToBuffers( gl: RenderingContext, program: Program, vertices: Array<Float>, colors: Array<Float>, indices: Array<Int> ){
         gl.uploadTriangleDataToBuffers( program, vertices, indices );
-        gl.uploadSimpleColorToBuffers( program, colors ); // color data
+        gl.uploadSimpleColorToBuffers(  program, colors ); // color data
     }
     
     static inline function uploadFloatToBuffers( gl: RenderingContext, program: Program, name: String, att: Int, arr: Array<Float> ){

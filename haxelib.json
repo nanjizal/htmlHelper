@@ -1,13 +1,13 @@
 {
 	"name": "htmlHelper",
 	"license": "MIT",
-	"tags": ["canvas","svg","WebGL"],
+	"tags": ["canvas","svg","WebGL","javascript"],
 	"description": "htmlHelper provides abstracts and setups to help with html",
 	"contributors": [
     "Nanjizal"
   ],
 	"releasenote": "See https://github.com/nanjizal/htmlHelper/blob/master/readme.md",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"url": "https://github.com/nanjizal/htmlHelper",
 	"classPath": "/",
 	"dependencies": {}
