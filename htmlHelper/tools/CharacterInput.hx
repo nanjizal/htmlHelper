@@ -4,8 +4,8 @@ import js.html.KeyboardEvent;
 import js.Browser;
 // Needs more thought in regard to depreciated but works fine for my needs.
 class CharacterInput {
-    public var specialUpdate:         Void   -> Void;
-    public var letterUpdate:        String -> Void;
+    public var specialUpdate:      Void   -> Void;
+    public var letterUpdate:       String -> Void;
     public var leftDown:           Bool = false;
     public var rightDown:          Bool = false;    
     public var downDown:           Bool = false;
