@@ -21,7 +21,7 @@ class CharacterInput {
         Browser.document.onkeydown  = keyDown;
         Browser.document.onkeyup    = keyUp;
     }
-    public function buttonsDown(){
+    public function specialsDown(){
         var str = '';
         if( leftDown )    str += 'left,';
         if( rightDown )   str += 'right,';
