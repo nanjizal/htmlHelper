@@ -86,6 +86,8 @@ class WebGLSetup {
         if( DEPTH_TEST ) gl.enable( RenderingContext.DEPTH_TEST );
         if( CULL_FACE )  gl.enable( RenderingContext.CULL_FACE ); 
         if( BACK )       gl.cullFace( RenderingContext.BACK );
+        //gl.disable(RenderingContext.CULL_FACE);
+        
         gl.clear( RenderingContext.COLOR_BUFFER_BIT );
         gl.viewport( 0, 0, canvas.width, canvas.height );
         var modelViewProjectionID = gl.getUniformLocation( program, 'modelViewProjection' );
