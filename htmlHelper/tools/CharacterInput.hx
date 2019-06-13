@@ -21,6 +21,10 @@ class CharacterInput {
     public function new(){
         Browser.document.onkeydown  = keyDown;
         Browser.document.onkeyup    = keyUp;
+        // create default key down traces
+        navSignal     = function(){ trace( navDown(); };
+        commandSignal = function(){ trace( commandDown(); };
+        letterSignal  = function( s: String ){ trace( 'letter pressed ' + s ); };
     }
     public function navDown(){
         var str = '';
@@ -45,51 +49,49 @@ class CharacterInput {
     function keyDown( e: KeyboardEvent ) {
         e.preventDefault();
         var keyCode = e.keyCode;
-        var command = true;
-        var nav     = false;
         switch( keyCode ){
             case KeyboardEvent.DOM_VK_LEFT:
                 leftDown    = true;
-                navUpdate();
+                navSignal();
             case KeyboardEvent.DOM_VK_RIGHT:
                 rightDown   = true;
-                navUpdate();
+                navSignal();
             case KeyboardEvent.DOM_VK_UP:
                 upDown      = true;
-                navUpdate();
+                navSignal();
             case KeyboardEvent.DOM_VK_DOWN:
                 downDown    = true;
-                navUpdate();
+                navSignal();
             case KeyboardEvent.DOM_VK_SHIFT:
                 shiftDown   = true;
-                commandUpdate();
+                commandSignal();
             case KeyboardEvent.DOM_VK_RETURN:
                 enterDown   = true;
-                commandUpdate();
+                commandSignal();
             case KeyboardEvent.DOM_VK_TAB:
                 tabDown     = true;
-                commandUpdate();
+                commandSignal();
             case KeyboardEvent.DOM_VK_ALT:
                 altDown     = true;
-                commandUpdate();
+                commandSignal();
             case KeyboardEvent.DOM_VK_META:
                 cmdDown     = true;
-                commandUpdate();
+                commandSignal();
             case KeyboardEvent.DOM_VK_SPACE:
                 spaceDown   = true;
-                commandUpdate();
+                commandSignal();
             case KeyboardEvent.DOM_VK_CONTROL:
                 controlDown = true;
-                commandUpdate();
+                commandSignal();
             default:
-                if( letterUpdate != null ) if( e.key != null ) letterUpdate( e.key );
+                if( e.key != null ) letterSignal( e.key );
         }
     }
     inline
     function keyUp( e: KeyboardEvent ) {
         e.preventDefault();
         var keyCode = e.keyCode;
-        switch(keyCode){
+        switch( keyCode ){
             case KeyboardEvent.DOM_VK_LEFT:
                 leftDown    = false;
             case KeyboardEvent.DOM_VK_RIGHT:
