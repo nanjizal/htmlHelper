@@ -22,11 +22,11 @@ class CharacterInput {
         Browser.document.onkeydown  = keyDown;
         Browser.document.onkeyup    = keyUp;
         // create default key down traces
-        navSignal     = function(){ trace( navDown(); };
-        commandSignal = function(){ trace( commandDown(); };
-        letterSignal  = function( s: String ){ trace( 'letter pressed ' + s ); };
+        navSignal     = function(): Void { trace( navDown() ); }
+        commandSignal = function(): Void { trace( commandDown() ); }
+        letterSignal  = function( s: String ):Void { trace( 'letter pressed ' + s ); }
     }
-    public function navDown(){
+    public function navDown(): String {
         var str = '';
         if( leftDown )    str += 'left,';
         if( rightDown )   str += 'right,';
@@ -34,7 +34,7 @@ class CharacterInput {
         if( upDown )      str += 'up,';
         return str;
     }
-    public function commandDown(){
+    public function commandDown(): String {
         var str = '';
         if( shiftDown )   str += 'shift,';
         if( enterDown )   str += 'enter,';
