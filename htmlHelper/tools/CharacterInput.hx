@@ -94,26 +94,37 @@ class CharacterInput {
         switch( keyCode ){
             case KeyboardEvent.DOM_VK_LEFT:
                 leftDown    = false;
+                navSignal();
             case KeyboardEvent.DOM_VK_RIGHT:
                 rightDown   = false;
+                navSignal();
             case KeyboardEvent.DOM_VK_UP:
                 upDown      = false;
+                navSignal();
             case KeyboardEvent.DOM_VK_DOWN:
                 downDown    = false;
+                navSignal();
             case KeyboardEvent.DOM_VK_SHIFT:
                 shiftDown   = false; 
+                commandSignal();
             case KeyboardEvent.DOM_VK_RETURN:
                 enterDown   = false;
+                commandSignal();
             case KeyboardEvent.DOM_VK_TAB:
                 tabDown     = false;
+                commandSignal();
             case KeyboardEvent.DOM_VK_ALT:
                 altDown     = false;
+                commandSignal();
             case KeyboardEvent.DOM_VK_META:
                 cmdDown     = false;
+                commandSignal();
             case KeyboardEvent.DOM_VK_SPACE:
                 spaceDown   = false;
+                commandSignal();
             case KeyboardEvent.DOM_VK_CONTROL:
                 controlDown = false;
+                commandSignal();
             default: 
                 
         }
