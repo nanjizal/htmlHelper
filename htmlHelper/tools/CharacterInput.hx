@@ -13,6 +13,7 @@ class CharacterInput {
     public var upDown:             Bool = false;
     public var shiftDown:          Bool = false;
     public var enterDown:          Bool = false;
+    public var deleteDown:         Bool = false;
     public var tabDown:            Bool = false;
     public var altDown:            Bool = false;
     public var cmdDown:            Bool = false;
@@ -43,6 +44,7 @@ class CharacterInput {
         if( cmdDown )     str += 'cmd,';
         if( spaceDown )   str += 'space,';
         if( controlDown ) str += 'control,'; 
+        if( deleteDown )  str += 'delete';
         return str;
     }
     inline
@@ -82,6 +84,9 @@ class CharacterInput {
                 commandSignal();
             case KeyboardEvent.DOM_VK_CONTROL:
                 controlDown = true;
+                commandSignal();
+            case KeyboardEvent.DOM_VK_BACK_SPACE:
+                deleteDown = true;
                 commandSignal();
             default:
                 if( e.key != null ) letterSignal( e.key );
@@ -124,6 +129,9 @@ class CharacterInput {
                 commandSignal();
             case KeyboardEvent.DOM_VK_CONTROL:
                 controlDown = false;
+                commandSignal();
+            case KeyboardEvent.DOM_VK_BACK_SPACE:
+                deleteDown = false;
                 commandSignal();
             default: 
                 
