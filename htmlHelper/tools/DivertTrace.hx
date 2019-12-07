@@ -7,14 +7,25 @@ class DivertTrace{
     var textStyle0 = '<span style="font-size:12px; color:Silver">';
     var textStyle1 = '<span style="font-size:14px; color:Grey">';
     public
-    function new( ?d: DivElement ){
-        divertTrace( d );
+    function new( ?left: Float = 610, ?d: DivElement ){
+        divertTrace( left, d );
     }
-    function divertTrace( ?d: DivElement ){
+    function divertTrace( left: Float, d: DivElement ){
         if( d == null ) {
             var doc = Browser.document;
             traceDiv = doc.createDivElement();
             doc.body.appendChild( cast traceDiv );
+            var dom           = cast traceDiv;
+            var style         = dom.style;
+            style.position = 'absolute';
+            style.top = '0px';
+            style.left = Std.string( left ) + 'px';
+            style.height = '500px';
+            style.width = '500px';
+            style.zIndex = '99';
+            style.overflow = 'auto';
+        } else {
+            traceDiv = d;
         } else {
             traceDiv = d;
         }
