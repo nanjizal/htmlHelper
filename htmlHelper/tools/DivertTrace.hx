@@ -26,8 +26,6 @@ class DivertTrace{
             style.overflow = 'auto';
         } else {
             traceDiv = d;
-        } else {
-            traceDiv = d;
         }
         haxe.Log.trace = myTrace;
     }
