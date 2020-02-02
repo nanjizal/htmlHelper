@@ -9,7 +9,8 @@ class ImageLoader{
     public var images:  Hash<ImageElement>;
     private var loaded: Void -> Void;
     private var count: Int;
-    public function new( imageNames: Array<String>, loaded_: Void -> Void ){
+    public
+    function new( imageNames: Array<String>, loaded_: Void -> Void ){
         images = new Hash();
         loaded = loaded_;
         count = imageNames.length;
@@ -27,7 +28,8 @@ class ImageLoader{
         image.src                   = img;
     }
     // for use when images are base64 encoded to a string.
-    public function loadEncoded( imageEncoded: Array<String>, imageNames: Array<String> ){
+    public
+    function loadEncoded( imageEncoded: Array<String>, imageNames: Array<String> ){
         count = imageNames.length;
         for( i in 0...count ){ 
             encodedLoad( imageEncoded[ i ],  imageNames[ i ] ); 

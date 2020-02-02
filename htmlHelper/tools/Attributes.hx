@@ -6,29 +6,35 @@ abstract AnAttribute( Attr ) from Attr  {
         this = att;
     }
     @:to
-    inline function attFloat(): Float {
+    public inline
+    function attFloat(): Float {
         return Std.parseFloat( this.value );
     }
     @:to
-    public function attInt(): Int {
+    public inline
+    function attInt(): Int {
         return Std.parseInt( this.value );
     }
     @:to
-    inline function attString(): String {
+    public inline
+    function attString(): String {
         return this.value;
     }
-    inline function parseBool( str: String ): Bool {
+    public inline
+    function parseBool( str: String ): Bool {
         str = str.toLowerCase();
         var bool: Bool = false;
         if( str == 'true' ) bool = true;
         return bool;
     }
     @:to
-    inline function attBool(): Bool {
+    public inline
+    function attBool(): Bool {
         return parseBool( this.value );
     }
     @:to
-    inline function attArrayString(): Array<String> {
+    public inline
+    function attArrayString(): Array<String> {
         var arrStr = this.value.split(',');
         var first = arrStr[ 0 ];
         if( first.charAt(0) == '[' ){
@@ -52,7 +58,8 @@ abstract AnAttribute( Attr ) from Attr  {
         return arrStr;
     }
     @:to
-    inline function attArrayFloat(): Array<Float> {
+    public inline
+    function attArrayFloat(): Array<Float> {
         var AnAt: AnAttribute = this;
         var arrStr: Array<String> = AnAt;
         var arr = new Array<Float>();
@@ -63,7 +70,8 @@ abstract AnAttribute( Attr ) from Attr  {
         return arr;
     }
     @:to
-    inline function attArrayInt(): Array<Int> {
+    public inline
+    function attArrayInt(): Array<Int> {
         var AnAt: AnAttribute = this;
         var arrStr: Array<String> = AnAt;
         var arr = new Array<Int>();
@@ -74,7 +82,8 @@ abstract AnAttribute( Attr ) from Attr  {
         return arr;
     }
     @:to
-    inline function attArrayBool(): Array<Bool> {
+    public inline
+    function attArrayBool(): Array<Bool> {
         var AnAt: AnAttribute = this;
         var arrStr: Array<String> = AnAt;
         var arr = new Array<Bool>();
@@ -84,7 +93,8 @@ abstract AnAttribute( Attr ) from Attr  {
         arrStr = null;
         return arr;
     }
-    public static inline function get_Attribute( element: DivElement, name: String ): AnAttribute {
+    public static inline
+    function get_Attribute( element: DivElement, name: String ): AnAttribute {
         var atts = element.attributes;
         var atr = atts.getNamedItem( name );
         var at: AnAttribute = atr;
@@ -96,7 +106,8 @@ class Attributes {
     public static var _element: DivElement;
     public static var _atts: NamedNodeMap;
     // don't inline as makes code verbose.
-    public static function parseAttribute( element_: DivElement, name_: String ): AnAttribute {
+    public static
+    function parseAttribute( element_: DivElement, name_: String ): AnAttribute {
         if( _element == element_ ){} else {
             _element = element_;
             _atts = element_.attributes;

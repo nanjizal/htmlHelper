@@ -27,7 +27,8 @@ class CharacterInput {
         commandSignal = function(): Void { trace( commandDown() ); }
         letterSignal  = function( s: String ):Void { trace( 'letter pressed ' + s ); }
     }
-    public function navDown(): String {
+    public
+    function navDown(): String {
         var str = '';
         if( leftDown )    str += 'left,';
         if( rightDown )   str += 'right,';
@@ -35,7 +36,8 @@ class CharacterInput {
         if( upDown )      str += 'up,';
         return str;
     }
-    public function commandDown(): String {
+    public
+    function commandDown(): String {
         var str = '';
         if( shiftDown )   str += 'shift,';
         if( enterDown )   str += 'enter,';

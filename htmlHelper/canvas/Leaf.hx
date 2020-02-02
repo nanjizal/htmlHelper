@@ -8,6 +8,11 @@ import js.Browser;
 using htmlHelper.canvas.Leaf;
 typedef Point2D = { x: Int, y: Int } 
 typedef Axis = { beta: Float, hyp: Float }
+/**
+ * Used to create IK bones using images, so handles offset Images, it uses two Canvas elements.
+ * One element is used to help size images and the other collates the results.
+ * Leaf should probably be more obviously name as tree branch, but like the name now. 
+ */
 class Leaf {
     public static var showBoxes:    Bool = false;
     public static var showCrosses:  Bool = false;
