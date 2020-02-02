@@ -3,7 +3,7 @@ html helper abstracts and setup classes, to make working with Svg, Canvas, WebGL
 
 [unit tests](https://nanjizal.github.io/htmlHelper/geomTest.html) ( using haxe-doctest and utest, not yet implemented )
 
-[doc](https://nanjizal.github.io/htmlHelper/pages) ( using doc-gen to provide documentation )
+[doc](https://nanjizal.github.io/htmlHelper/pages/) ( using doc-gen to provide documentation )
 
 ### Library contents
 
