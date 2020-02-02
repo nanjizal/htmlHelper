@@ -1,0 +1,9 @@
+-cp src
+-lib utest
+-lib haxe-doctest
+-lib equals
+--no-inline
+-main htmlHelper.HtmlHelperTest
+-js htmlHelperTest.js
+-cmd echo '<!DOCTYPE html><meta charset="UTF-8"><html><body><script src="htmlHelperTest.js"></script></body></html>' >htmlHelperTest.html
+-cmd open htmlHelperTest.html

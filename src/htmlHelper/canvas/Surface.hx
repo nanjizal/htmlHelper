@@ -1,14 +1,17 @@
 package htmlHelper.canvas;
 import js.html.CanvasRenderingContext2D;
+/**
+ * new CanvasPlus({ x: Float, y: Float, me: CanvasRenderingContext2D });
+ */
 @:structInit
 class CanvasPlus {
     public var x = 0.; 
     public var y = 0.;
-    public var me: canvasRenderingContext2D;
-    function new( context: CanvasRenderingContext2D, x: Float = 0, y: Float = 0 ){
+    public var me: CanvasRenderingContext2D;
+    function new( me: CanvasRenderingContext2D, x: Float = 0, y: Float = 0 ){
         this.x = x; 
         this.y = y;
-        this.context = context;
+        this.me = me;
     }
 }
 abstract Surface( CanvasPlus ){
@@ -18,7 +21,7 @@ abstract Surface( CanvasPlus ){
     }
     public inline
     function lineStyle( wid: Float, col: Int, ?alpha: Float ){
-        this.me.contextlineWidth = wid;
+        this.me.lineWidth = wid;
         if( alpha != null && alpha != 1.0 ){
             var r = (col >> 16) & 0xFF;
             var g = (col >> 8) & 0xFF;
@@ -34,11 +37,11 @@ abstract Surface( CanvasPlus ){
             var r = (col >> 16) & 0xFF;
             var g = (col >> 8) & 0xFF;
             var b = (col) & 0xFF;
-            this..me.fillStyle = 'rgba($r,$g,$b,$alpha)';
+            this.me.fillStyle = 'rgba($r,$g,$b,$alpha)';
         } else {
             this.me.fillStyle = '#' + StringTools.hex( col, 6 );
         }
-        this.beginPath();
+        this.me.beginPath();
     }
     public inline
     function endFill(){
@@ -64,18 +67,10 @@ abstract Surface( CanvasPlus ){
     }
     public inline
     function quadThru( x1: Float, y1: Float
-                     , x2: Float, y2: Float )
+                     , x2: Float, y2: Float ){
         x1 = midBezier( this.x, x1, x2 );
         y1 = midBezier( this.y, y1, y2 );
-        moveTo( x0, y0 ); // not ideal!!
         quadTo( x1, y1, x2, y2 );
-    }
-    public inline
-    function quadTo( x1: Float, y1: Float
-                   , x2: Float, y2: Float ): Void {
-        this.me.quadraticCurveTo( x1, y1, x2, y2 );
-        this.x = x2;
-        this.y = y2;
     }
     public inline
     function quadTo( x1: Float, y1: Float
@@ -88,7 +83,7 @@ abstract Surface( CanvasPlus ){
     function curveTo( x1: Float, y1: Float
                                    , x2: Float, y2: Float
                            , x3: Float, y3: Float ): Void {
-        this.bezierCurveTo( x1, y1, x2, y2, x3, y3 );
+        this.me.bezierCurveTo( x1, y1, x2, y2, x3, y3 );
         this.x = x2;
         this.y = x2;
     }

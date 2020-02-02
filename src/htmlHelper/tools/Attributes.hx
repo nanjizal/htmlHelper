@@ -1,5 +1,6 @@
-package htmlHepler.tools;
+package htmlHelper.tools;
 import js.html.DivElement;
+import js.html.NamedNodeMap;
 import js.html.Attr;
 abstract AnAttribute( Attr ) from Attr  {
     inline function new( att: Attr ){

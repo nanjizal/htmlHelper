@@ -1,5 +1,7 @@
 package htmlHelper.canvas;
+#if !htmlHelperDoc
 import geom.matrix.Matrix2x2;
+#end
 import js.Browser;
 import js.html.CanvasElement;
 class AutoSize {
@@ -10,9 +12,7 @@ class AutoSize {
      * Use to autosize canvas to cover whole screen
      */
     public
-    function setFull( canvas:      canvasElemennt
-                        , defaultSize: Int = 768
-                        , autoColor: Bool = true ){
+    function setFull( canvas: CanvasElement, defaultSize: Int = 768, autoColor: Bool = true ){
         var win            = Browser.window;
         var document       = win.document;
         var doc            = document;
@@ -40,7 +40,7 @@ class AutoSize {
                 scale       = size/defaultSize; // may need more thought..
                 canvaStyle.width  = docElement.clientWidth + "px";
                 canvaStyle.height = docElement.clientHeight + "px";
-                transform         = scale * Matrix2x2.unit;
+                //transform         = scale * Matrix2x2.unit;
             }
         }
         win.onresize = resize;
@@ -51,7 +51,7 @@ class AutoSize {
      * Untested
      */
     public
-    function setVerticalSplit( canvas:      canvasElemennt
+    function setVerticalSplit( canvas:      CanvasElement
                              , defaultSize: Int = 768
                              , autoColor: Bool = true ){
         var win            = Browser.window;
@@ -72,7 +72,7 @@ class AutoSize {
             var dpRatio     = win.devicePixelRatio;
             canvas.width    = Std.int( win.innerWidth * dpRatio );
             canvas.height   = Std.int( win.innerHeight * dpRatio );
-            var nWid        = Std.int( canvas.width  / dpRatio )/2;
+            var nWid        = Std.int( 0.5 * canvas.width  / dpRatio );
             var nHi         = Std.int( canvas.height / dpRatio );
             if( nHi != hi || nWid != wid ){
                 wid         = nWid;
@@ -81,7 +81,7 @@ class AutoSize {
                 scale       = size/defaultSize; // may need more thought..
                 canvaStyle.width  = docElement.clientWidth + "px";
                 canvaStyle.height = docElement.clientHeight + "px";
-                transform         = scale * Matrix2x2.unit;
+                //transform         = scale * Matrix2x2.unit;
             }
         }
         win.onresize = resize;
@@ -90,6 +90,6 @@ class AutoSize {
     public var wid:        Int  = 0;
     public var hi:         Int  = 0;
     public var resize:     Void->Void;
-    public var transform:  Matrix2x2;
+    //public var transform:  Matrix2x2;
     public var scale:      Float = 1.;
 }

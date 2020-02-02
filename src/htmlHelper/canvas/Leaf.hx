@@ -23,7 +23,7 @@ class Leaf {
     public var parent:              Leaf;
     public var name:                String;
     // source
-    public var image( default, set_image ):  ImageElement;
+    @:isVar public var image( default, set ):  ImageElement;
     // image position
     public var x:           Int;
     public var y:           Int;
@@ -34,7 +34,7 @@ class Leaf {
     public var rx:         Float;
     public var ry:         Float;
     // angle in radians
-    public var theta( default, set_theta ): Float;
+    @:isVar public var theta( default, set ): Float;
     // store by depth
     public var leaves:                      Array<Leaf>;
     public var leafCentre:                  Array<Point2D>;
@@ -50,16 +50,16 @@ class Leaf {
     var dx:                                 Float;
     var dy:                                 Float;
     public var offset:                      Point2D;
-    public function set_image( image_: ImageElement ): ImageElement {
-        image   = image_;
+    function set_image( image ): ImageElement {
+        this.image   = image;
         w       = image.width;
         h       = image.height;
         return image;
     }
-    public function set_theta( theta_: Float ): Float {
+    public function set_theta( theta: Float ): Float {
         if( theta == null ) theta = 0;
-        var dTheta = theta - theta_;
-        theta = theta_;
+        var dTheta = this.theta - theta;
+        this.theta = theta;
         if( rx == null ) rx = 0;
         if( ry == null ) ry = 0;
         var sine            = Math.sin( theta );
@@ -74,7 +74,7 @@ class Leaf {
         offset              = pivotOffset();
         left                = Std.int( x + offset.x );
         top                 = Std.int( y + offset.y );
-        return theta_;
+        return theta;
     }
     public function addLeaf( leaf: Leaf, rx_: Int, ry_: Int ){
         leafCentre.push( { x: rx_, y: ry_ } );

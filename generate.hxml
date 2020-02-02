@@ -1,0 +1,10 @@
+-lib htmlHelper
+#-lib geom
+-D htmlHelperDoc
+-D doc-gen
+--macro include('htmlHelper')
+-cp src
+-main htmlHelper.HtmlHelperDoc
+--no-output
+-xml output.xml
+-js foo

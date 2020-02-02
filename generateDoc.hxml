@@ -1,0 +1,4 @@
+-cmd haxe generate.hxml
+-cmd haxelib run dox -i output.xml --title "htmlHelper API documentation" -D themeColor 0xf0db4f --toplevel-package htmlHelper
+-cmd cd pages
+-cmd open index.html

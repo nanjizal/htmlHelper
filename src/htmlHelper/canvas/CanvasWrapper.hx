@@ -10,6 +10,13 @@ abstract CanvasWrapper( CanvasElement ) to CanvasElement from CanvasElement {
             this = e;
         }
     }
+    /**
+     * <pre><code>
+     * >>> ({ 
+     * ... trace( 'no tests implemented yet' );
+     * ... true; }) == true
+     * </code></pre>
+     */
     inline static public function create(): CanvasElement {
         var canvas = Browser.document.createCanvasElement();
         var dom = cast canvas;
@@ -22,21 +29,25 @@ abstract CanvasWrapper( CanvasElement ) to CanvasElement from CanvasElement {
         return canvas;
     }
     public var x( get, set ): Int;
-    inline public function set_x( x_: Int ):Int {
+    inline
+    function set_x( x_: Int ):Int {
         ( cast this ).style.left = Std.string( x_ ) + 'px';
         return( x_ );
     }
-    inline public function get_x(): Int {
+    inline
+    function get_x(): Int {
         var style = ( cast this ).style;
         var len = style.left.length;
         return Std.parseInt( style.left.substr( 0, len - 2 ) );
     }
     public var y( get, set ): Int;
-    inline public function set_y( y_: Int ):Int {
+    inline
+    function set_y( y_: Int ):Int {
         ( cast this ).style.left = Std.string( y_ ) + 'px';
         return( y_ );
     }
-    inline public function get_y(): Int {
+    inline
+    function get_y(): Int {
         var style = ( cast this ).style;
         var len = style.top.length;
         return Std.parseInt( style.top.substr( 0, len - 2 ) );
