@@ -151,14 +151,6 @@ class WebGLSetup {
         gl.enableVertexAttribArray( flo );
         gl.bindBuffer( arrBuffer, null );
     }
-    /*
-    static inline function uploadTriangleDataToBuffers( gl: RenderingContext, program: Program, vertices: Array<Float>, indices: Array<Int> ){
-        //var indexBuffer = gl.createBuffer(); // triangle indicies data 
-        //gl.bindBuffer( RenderingContext.ELEMENT_ARRAY_BUFFER, indexBuffer );
-        //gl.bufferData( RenderingContext.ELEMENT_ARRAY_BUFFER, new Uint16Array( indices ), RenderingContext.STATIC_DRAW );
-        //gl.bindBuffer( RenderingContext.ELEMENT_ARRAY_BUFFER, null );
-    }
-    */
     static inline
     function uploadDataToBuffers( gl: RenderingContext, program: Program, vertices: Float32Array, colors: Float32Array, ?texture: Float32Array ){//, indices: Uint16Array ){
         gl.shaderInput( program, 'pos',   3, vertices, RenderingContext.FLOAT );
