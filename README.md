@@ -5,7 +5,7 @@ html helper abstracts and setup classes, to make working with Svg, Canvas, WebGL
 
 [doc](https://nanjizal.github.io/htmlHelper/pages/) ( using doc-gen to provide documentation )
 
-### Library contents
+### Library summary
 
   - **canvas**   
       [AutoSize](https://nanjizal.github.io/htmlHelper/pages/htmlHelper/canvas/AutoSize.html) is to help with automatically sizing the canvas: *setFull* or *setVerticalSplit*  
