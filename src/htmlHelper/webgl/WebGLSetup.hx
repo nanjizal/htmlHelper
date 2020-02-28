@@ -94,6 +94,7 @@ class WebGLSetup {
      */
     public
     function new( width_: Int, height_: Int, autoChild: Bool = true ){
+        trace( 'dev htmlHelper');
         matrix32Array     = ident(); // internal matrix passed to shader
         setupCanvas( width_, height_, autoChild );
     }

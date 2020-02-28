@@ -1416,12 +1416,19 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</_new>
-	<create public="1" get="inline" set="null" line="13" static="1"><f a=""><c path="js.html.CanvasElement"/></f></create>
+	<create public="1" get="inline" set="null" line="20" static="1">
+		<f a=""><c path="js.html.CanvasElement"/></f>
+		<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... trace( 'no tests implemented yet' );
+     * ... true; }) == true
+     * </code></pre>]]></haxe_doc>
+	</create>
 	<x public="1" get="accessor" set="accessor" static="1">
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</x>
-	<set_x get="inline" set="null" line="25" static="1">
+	<set_x get="inline" set="null" line="32" static="1">
 		<f a="this:x_">
 			<c path="js.html.CanvasElement"/>
 			<x path="Int"/>
@@ -1429,7 +1436,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_x>
-	<get_x get="inline" set="null" line="30" static="1">
+	<get_x get="inline" set="null" line="37" static="1">
 		<f a="this">
 			<c path="js.html.CanvasElement"/>
 			<x path="Int"/>
@@ -1440,7 +1447,7 @@
 		<x path="Int"/>
 		<meta><m n=":impl"/></meta>
 	</y>
-	<set_y get="inline" set="null" line="37" static="1">
+	<set_y get="inline" set="null" line="44" static="1">
 		<f a="this:y_">
 			<c path="js.html.CanvasElement"/>
 			<x path="Int"/>
@@ -1448,7 +1455,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</set_y>
-	<get_y get="inline" set="null" line="42" static="1">
+	<get_y get="inline" set="null" line="49" static="1">
 		<f a="this">
 			<c path="js.html.CanvasElement"/>
 			<x path="Int"/>
@@ -1468,12 +1475,19 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</_new>
-		<create public="1" get="inline" set="null" line="13" static="1"><f a=""><c path="js.html.CanvasElement"/></f></create>
+		<create public="1" get="inline" set="null" line="20" static="1">
+			<f a=""><c path="js.html.CanvasElement"/></f>
+			<haxe_doc><![CDATA[* <pre><code>
+     * >>> ({ 
+     * ... trace( 'no tests implemented yet' );
+     * ... true; }) == true
+     * </code></pre>]]></haxe_doc>
+		</create>
 		<x public="1" get="accessor" set="accessor" static="1">
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</x>
-		<set_x get="inline" set="null" line="25" static="1">
+		<set_x get="inline" set="null" line="32" static="1">
 			<f a="this:x_">
 				<c path="js.html.CanvasElement"/>
 				<x path="Int"/>
@@ -1481,7 +1495,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_x>
-		<get_x get="inline" set="null" line="30" static="1">
+		<get_x get="inline" set="null" line="37" static="1">
 			<f a="this">
 				<c path="js.html.CanvasElement"/>
 				<x path="Int"/>
@@ -1492,7 +1506,7 @@
 			<x path="Int"/>
 			<meta><m n=":impl"/></meta>
 		</y>
-		<set_y get="inline" set="null" line="37" static="1">
+		<set_y get="inline" set="null" line="44" static="1">
 			<f a="this:y_">
 				<c path="js.html.CanvasElement"/>
 				<x path="Int"/>
@@ -1500,7 +1514,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</set_y>
-		<get_y get="inline" set="null" line="42" static="1">
+		<get_y get="inline" set="null" line="49" static="1">
 			<f a="this">
 				<c path="js.html.CanvasElement"/>
 				<x path="Int"/>
@@ -2790,7 +2804,7 @@
 			<meta><m n=":value"><e>"aTexture"</e></m></meta>
 			<haxe_doc>* name used in vertex shader for texture uv data</haxe_doc>
 		</textureName>
-		<passIndicesToShader public="1" get="inline" set="null" line="154" static="1">
+		<passIndicesToShader public="1" get="inline" set="null" line="155" static="1">
 			<f a="gl:indices">
 				<c path="js.html.webgl.RenderingContext"/>
 				<x path="haxe.io.UInt16Array"/>
@@ -2799,7 +2813,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>* like ShaderInput but setup for indices.</haxe_doc>
 		</passIndicesToShader>
-		<shaderFromString public="1" get="inline" set="null" line="202" static="1">
+		<shaderFromString public="1" get="inline" set="null" line="203" static="1">
 			<f a="gl:shaderType:shaderString">
 				<c path="js.html.webgl.RenderingContext"/>
 				<x path="Int"/>
@@ -2808,7 +2822,7 @@
 			</f>
 			<haxe_doc>* converts a shader string to a shader and compiles it.</haxe_doc>
 		</shaderFromString>
-		<createShaderProgram public="1" get="inline" set="null" line="214" static="1">
+		<createShaderProgram public="1" get="inline" set="null" line="215" static="1">
 			<f a="gl:vertex:fragment">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.webgl.Shader"/>
@@ -2817,7 +2831,7 @@
 			</f>
 			<haxe_doc>* helper to create a shader program given a vertex and fragment shader.</haxe_doc>
 		</createShaderProgram>
-		<shaderInput public="1" params="T" get="inline" set="null" line="226" static="1">
+		<shaderInput public="1" params="T" get="inline" set="null" line="227" static="1">
 			<f a="gl:program:name:att:arr:number">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.webgl.Program"/>
@@ -2830,7 +2844,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>* links shader input to buffer and program</haxe_doc>
 		</shaderInput>
-		<uploadDataToBuffers public="1" get="inline" set="null" line="247" static="1">
+		<uploadDataToBuffers public="1" get="inline" set="null" line="248" static="1">
 			<f a="gl:program:vertices:colors:?texture">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.webgl.Program"/>
@@ -2841,7 +2855,7 @@
 			</f>
 			<haxe_doc>*  connects array data to shaders - vertices, colors and optional textures.</haxe_doc>
 		</uploadDataToBuffers>
-		<uploadImage public="1" get="inline" set="null" line="257" static="1">
+		<uploadImage public="1" get="inline" set="null" line="258" static="1">
 			<f a="gl:image">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.Image"/>
@@ -2850,14 +2864,14 @@
 			<haxe_doc>* Basic function to upload and link an image to a shader program 
      * TODO: Requires more generalization and testing.</haxe_doc>
 		</uploadImage>
-		<toRGB public="1" get="inline" set="null" line="284" static="1">
+		<toRGB public="1" get="inline" set="null" line="285" static="1">
 			<f a="int">
 				<x path="Int"/>
 				<t path="htmlHelper.webgl.RGB"/>
 			</f>
 			<haxe_doc>* splits Int into r,g,b object.</haxe_doc>
 		</toRGB>
-		<ident public="1" get="inline" set="null" line="295" static="1">
+		<ident public="1" get="inline" set="null" line="296" static="1">
 			<f a=""><x path="haxe.io.Float32Array"/></f>
 			<haxe_doc>* provides an identity 4x4 matrix as Float32Array for shader transform</haxe_doc>
 		</ident>
@@ -2924,7 +2938,7 @@
 			<meta><m n=":value"><e>new Float32Array(100)</e></m></meta>
 			<haxe_doc>* colors array provided to shader</haxe_doc>
 		</colors>
-		<setupCanvas public="1" set="method" line="103">
+		<setupCanvas public="1" set="method" line="104">
 			<f a="width_:height_:?autoChild" v="::true">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -2934,7 +2948,7 @@
 			<meta><m n=":value"><e>{ autoChild : true }</e></m></meta>
 			<haxe_doc>* Setup canvas for WebGL</haxe_doc>
 		</setupCanvas>
-		<setupProgram public="1" set="method" line="124">
+		<setupProgram public="1" set="method" line="125">
 			<f a="vertexString:fragmentString">
 				<c path="String"/>
 				<c path="String"/>
@@ -2942,18 +2956,18 @@
 			</f>
 			<haxe_doc>* setup a program with shader strings</haxe_doc>
 		</setupProgram>
-		<addImage public="1" set="method" line="134">
+		<addImage public="1" set="method" line="135">
 			<f a="img">
 				<c path="js.html.Image"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>* to upload an image to render.</haxe_doc>
 		</addImage>
-		<clearVerticesAndColors public="1" set="method" line="141">
+		<clearVerticesAndColors public="1" set="method" line="142">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* general clear buffer method may need suplementing, depending on use case.</haxe_doc>
 		</clearVerticesAndColors>
-		<setVerticesAndColors public="1" set="method" line="164">
+		<setVerticesAndColors public="1" set="method" line="165">
 			<f a="vertices:triangleColors">
 				<x path="haxe.io.Float32Array"/>
 				<c path="Array"><x path="UInt"/></c>
@@ -2961,7 +2975,7 @@
 			</f>
 			<haxe_doc>* alternative approach to setting up vertices and colors used by older experiments.</haxe_doc>
 		</setVerticesAndColors>
-		<render public="1" set="method" line="185">
+		<render public="1" set="method" line="186">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>* main render loop</haxe_doc>

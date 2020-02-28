@@ -1050,7 +1050,7 @@ htmlHelper_HtmlHelperTest.prototype = $extend(utest_Test.prototype,{
 	testCanvasWrapper_1: function() {
 		var left;
 		try {
-			haxe_Log.trace("no tests implemented",{ fileName : "src/htmlHelper/HtmlHelperTest.hx", lineNumber : 13, className : "htmlHelper.HtmlHelperTest", methodName : "testCanvasWrapper_1"});
+			haxe_Log.trace("no tests implemented yet",{ fileName : "src/htmlHelper/HtmlHelperTest.hx", lineNumber : 13, className : "htmlHelper.HtmlHelperTest", methodName : "testCanvasWrapper_1"});
 			left = true;
 		} catch( ex ) {
 			haxe_CallStack.lastException = ex;
@@ -1064,9 +1064,9 @@ htmlHelper_HtmlHelperTest.prototype = $extend(utest_Test.prototype,{
 			right = "exception: " + Std.string(((ex1) instanceof js__$Boot_HaxeError) ? ex1.val : ex1) + hx_doctest_internal_DocTestUtils.exceptionStackAsString();
 		}
 		if(hx_doctest_internal_DocTestUtils.deepEquals(left,right)) {
-			utest_Assert.pass("CanvasWrapper.hx:15 [OK] ({\ntrace( 'no tests implemented' );\ntrue; }) == true",{ lineNumber : 15, fileName : "src/htmlHelper/canvas/CanvasWrapper.hx", className : "", methodName : ""});
+			utest_Assert.pass("CanvasWrapper.hx:15 [OK] ({\ntrace( 'no tests implemented yet' );\ntrue; }) == true",{ lineNumber : 15, fileName : "src/htmlHelper/canvas/CanvasWrapper.hx", className : "", methodName : ""});
 		} else {
-			utest_Assert.fail("({\ntrace( 'no tests implemented' );\ntrue; }) == true --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 15, fileName : "src/htmlHelper/canvas/CanvasWrapper.hx", className : "", methodName : ""});
+			utest_Assert.fail("({\ntrace( 'no tests implemented yet' );\ntrue; }) == true --> Left side `" + Std.string(left) + "` does not equal `" + Std.string(right) + "`.",{ lineNumber : 15, fileName : "src/htmlHelper/canvas/CanvasWrapper.hx", className : "", methodName : ""});
 		}
 	}
 	,__initializeUtest__: function() {
