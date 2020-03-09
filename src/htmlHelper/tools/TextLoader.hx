@@ -1,3 +1,4 @@
+package htmlHelper.tools;
 import js.Lib;
 import haxe.Http;
 import js.Browser;
