@@ -60,6 +60,11 @@
 
 		`this.length` increases by 1.</haxe_doc>
 		</push>
+		<iterator public="1" get="inline" set="null" line="77">
+			<f a=""><t path="Iterator"><c path="Array.T"/></t></f>
+			<meta><m n=":runtime"/></meta>
+			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
+		</iterator>
 		<new public="1" set="method">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
@@ -267,11 +272,59 @@
 	[regexp literals](https://haxe.org/manual/std-regex.html).</haxe_doc>
 		<meta><m n=":native"><e>"RegExp"</e></m></meta>
 	</class>
+	<class path="EReg" params="" file="/usr/local/lib/haxe/std/js/_std/EReg.hx">
+		<r><c path="_EReg.HaxeRegExp"/></r>
+		<match public="1" set="method" line="29">
+			<f a="s">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `this` regular expression matches String `s`.
+
+		This method modifies the internal state.
+
+		If `s` is `null`, the result is unspecified.</haxe_doc>
+		</match>
+		<new public="1" get="inline" set="null" line="25">
+			<f a="r:opt">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new regular expression with pattern `r` and modifiers `opt`.
+
+		This is equivalent to the shorthand syntax `~/r/opt`
+
+		If `r` or `opt` are null, the result is unspecified.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[The EReg class represents regular expressions.
+
+	While basic usage and patterns consistently work across platforms, some more
+	complex operations may yield different results. This is a necessary trade-
+	off to retain a certain level of performance.
+
+	EReg instances can be created by calling the constructor, or with the
+	special syntax `~/pattern/modifier`
+
+	EReg instances maintain an internal state, which is affected by several of
+	its methods.
+
+	A detailed explanation of the supported operations is available at
+	<https://haxe.org/manual/std-regex.html>]]></haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
 	<class path="_EReg.HaxeRegExp" params="" file="/usr/local/lib/haxe/std/js/_std/EReg.hx" private="1" module="EReg" extern="1">
 		<extends path="js.lib.RegExp"/>
 		<m public="1"><c path="js.lib.RegExpMatch"/></m>
 		<s public="1"><c path="String"/></s>
-		<meta><m n=":native"><e>"RegExp"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"RegExp"</e></m>
+		</meta>
 	</class>
 	<abstract path="Enum" params="T" file="/usr/local/lib/haxe/std/Enum.hx">
 		<this><x path="Enum"><c path="Enum.T"/></x></this>
@@ -296,6 +349,42 @@
 		<meta><m n=":coreType"/></meta>
 		<impl><class path="_EnumValue.EnumValue_Impl_" params="" file="/usr/local/lib/haxe/std/EnumValue.hx" private="1" module="EnumValue"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
+	<class path="Lambda" params="" file="/usr/local/lib/haxe/std/Lambda.hx">
+		<exists public="1" params="A" set="method" line="125" static="1">
+			<f a="it:f">
+				<t path="Iterable"><c path="exists.A"/></t>
+				<f a="item">
+					<c path="exists.A"/>
+					<x path="Bool"/>
+				</f>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `it` contains an element for which `f` is true.
+
+		This function returns true as soon as an element is found for which a
+		call to `f` returns true.
+
+		If no such element is found, the result is false.
+
+		If `f` is null, the result is unspecified.</haxe_doc>
+		</exists>
+		<haxe_doc>The `Lambda` class is a collection of methods to support functional
+	programming. It is ideally used with `using Lambda` and then acts as an
+	extension to Iterable types.
+
+	On static platforms, working with the Iterable structure might be slower
+	than performing the operations directly on known types, such as Array and
+	List.
+
+	If the first argument to any of the methods is null, the result is
+	unspecified.
+
+	@see https://haxe.org/manual/std-Lambda.html</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
 	<class path="Math" params="" file="/usr/local/lib/haxe/std/js/_std/Math.hx" extern="1">
 		<abs public="1" set="method" static="1"><f a="v">
 	<x path="Float"/>
@@ -327,6 +416,44 @@
 			<m n=":keep"/>
 			<m n=":directlyUsed"/>
 			<m n=":keepInit"/>
+		</meta>
+	</class>
+	<class path="Reflect" params="" file="/usr/local/lib/haxe/std/js/_std/Reflect.hx">
+		<isFunction public="1" set="method" line="74" static="1">
+			<f a="f">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":access"><e>js.Boot</e></m></meta>
+			<haxe_doc>Returns true if `f` is a function, false otherwise.
+
+		If `f` is null, the result is false.</haxe_doc>
+		</isFunction>
+		<compareMethods public="1" set="method" line="82" static="1">
+			<f a="f1:f2">
+				<d/>
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Compares the functions `f1` and `f2`.
+
+		If `f1` or `f2` are null, the result is false.
+		If `f1` or `f2` are not functions, the result is unspecified.
+
+		Otherwise the result is true if `f1` and the `f2` are physically equal,
+		false otherwise.
+
+		If `f1` or `f2` are member method closures, the result is true if they
+		are closures of the same method on the same object value, false otherwise.</haxe_doc>
+		</compareMethods>
+		<haxe_doc>The Reflect API is a way to manipulate values dynamically through an
+	abstract interface in an untyped manner. Use with care.
+
+	@see https://haxe.org/manual/std-reflection.html</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
 		</meta>
 	</class>
 	<class path="js.Syntax" params="" file="/usr/local/lib/haxe/std/js/Syntax.hx" extern="1">
@@ -808,6 +935,32 @@
 	abstract types.
 
 	@see https://haxe.org/manual/types-abstract-array-access.html</haxe_doc></class>
+	<class path="StringBuf" params="" file="/usr/local/lib/haxe/std/StringBuf.hx">
+		<b><c path="String"/></b>
+		<length public="1" get="null" set="null">
+			<x path="Int"/>
+			<haxe_doc>The length of `this` StringBuf in characters.</haxe_doc>
+		</length>
+		<new public="1" get="inline" set="null" line="47">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new StringBuf instance.
+
+		This may involve initialization of the internal buffer.</haxe_doc>
+		</new>
+		<haxe_doc>A String buffer is an efficient way to build a big string by appending small
+	elements together.
+
+	Its cross-platform implementation uses String concatenation internally, but
+	StringBuf may be optimized for different targets.
+
+	Unlike String, an instance of StringBuf is not immutable in the sense that
+	it can be passed as argument to functions which modify it by appending more
+	values. However, the internal buffer cannot be modified.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
 	<class path="StringTools" params="" file="/usr/local/lib/haxe/std/StringTools.hx">
 		<isSpace public="1" set="method" line="288" static="1">
 			<f a="s:pos">
@@ -1082,6 +1235,7 @@
 	If the first argument to any of the methods is `null`, the result is
 	unspecified.</haxe_doc>
 	</class>
+	<typedef path="haxe.Http" params="" file="/usr/local/lib/haxe/std/haxe/Http.hx"><c path="haxe.http.HttpJs"/></typedef>
 	<abstract path="haxe.Int32" params="" file="/usr/local/lib/haxe/std/haxe/Int32.hx">
 		<from><icast><x path="Int"/></icast></from>
 		<this><x path="Int"/></this>
@@ -1270,6 +1424,123 @@
 	@see <https://haxe.org/manual/lf-externs.html>]]></haxe_doc>
 		<impl><class path="haxe.extern._Rest.Rest_Impl_" params="" file="/usr/local/lib/haxe/std/haxe/extern/Rest.hx" private="1" module="haxe.extern.Rest"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
+	<typedef path="haxe.http._HttpBase.StringKeyValue" params="" file="/usr/local/lib/haxe/std/haxe/http/HttpBase.hx" private="1" module="haxe.http.HttpBase"><a>
+	<value><c path="String"/></value>
+	<name><c path="String"/></name>
+</a></typedef>
+	<class path="haxe.http.HttpBase" params="" file="/usr/local/lib/haxe/std/haxe/http/HttpBase.hx">
+		<url public="1">
+			<c path="String"/>
+			<haxe_doc>The url of `this` request. It is used only by the `request()` method and
+		can be changed in order to send the same request to different target
+		Urls.</haxe_doc>
+		</url>
+		<responseData public="1" get="accessor" set="null"><x path="Null"><c path="String"/></x></responseData>
+		<responseBytes public="1" set="null"><x path="Null"><c path="haxe.io.Bytes"/></x></responseBytes>
+		<responseAsString><x path="Null"><c path="String"/></x></responseAsString>
+		<postData><x path="Null"><c path="String"/></x></postData>
+		<postBytes><x path="Null"><c path="haxe.io.Bytes"/></x></postBytes>
+		<headers><c path="Array"><t path="haxe.http._HttpBase.StringKeyValue"/></c></headers>
+		<params><c path="Array"><t path="haxe.http._HttpBase.StringKeyValue"/></c></params>
+		<emptyOnData final="1"><f a="">
+	<c path="String"/>
+	<x path="Void"/>
+</f></emptyOnData>
+		<onData public="1" set="dynamic" line="196">
+			<f a="data">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This method is called upon a successful request, with `data` containing
+		the result String.
+
+		The intended usage is to bind it to a custom function:
+		`httpInstance.onData = function(data) { // handle result }`</haxe_doc>
+		</onData>
+		<onBytes public="1" set="dynamic" line="205">
+			<f a="data">
+				<c path="haxe.io.Bytes"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This method is called upon a successful request, with `data` containing
+		the result String.
+
+		The intended usage is to bind it to a custom function:
+		`httpInstance.onBytes = function(data) { // handle result }`</haxe_doc>
+		</onBytes>
+		<onError public="1" set="dynamic" line="214">
+			<f a="msg">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This method is called upon a request error, with `msg` containing the
+		error description.
+
+		The intended usage is to bind it to a custom function:
+		`httpInstance.onError = function(msg) { // handle error }`</haxe_doc>
+		</onError>
+		<onStatus public="1" set="dynamic" line="223">
+			<f a="status">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>This method is called upon a Http status change, with `status` being the
+		new status.
+
+		The intended usage is to bind it to a custom function:
+		`httpInstance.onStatus = function(status) { // handle status }`</haxe_doc>
+		</onStatus>
+		<hasOnData set="method" line="228">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>Override this if extending `haxe.Http` with overriding `onData`</haxe_doc>
+		</hasOnData>
+		<success set="method" line="232"><f a="data">
+	<c path="haxe.io.Bytes"/>
+	<x path="Void"/>
+</f></success>
+		<get_responseData set="method" line="241"><f a=""><x path="Null"><c path="String"/></x></f></get_responseData>
+		<new public="1" set="method" line="71">
+			<f a="url">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new Http instance with `url` as parameter.
+
+		This does not do a request until `request()` is called.
+
+		If `url` is null, the field url must be set to a value before making the
+		call to `request()`, or the result is unspecified.
+
+		(Php) Https (SSL) connections are allowed only if the OpenSSL extension
+		is enabled.</haxe_doc>
+		</new>
+		<haxe_doc>This class can be used to handle Http requests consistently across
+	platforms. There are two intended usages:
+
+	- call `haxe.Http.requestUrl(url)` and receive the result as a `String`
+	(not available on flash)
+	- create a `new haxe.Http(url)`, register your callbacks for `onData`,
+	`onError` and `onStatus`, then call `request()`.</haxe_doc>
+		<meta><m n=":keep"/></meta>
+	</class>
+	<class path="haxe.http.HttpJs" params="" file="/usr/local/lib/haxe/std/haxe/http/HttpJs.hx">
+		<extends path="haxe.http.HttpBase"/>
+		<async public="1"><x path="Bool"/></async>
+		<withCredentials public="1"><x path="Bool"/></withCredentials>
+		<req><c path="js.html.XMLHttpRequest"/></req>
+		<request public="1" set="method" line="53"><f a="?post">
+	<x path="Bool"/>
+	<x path="Void"/>
+</f></request>
+		<new public="1" set="method" line="36"><f a="url">
+	<c path="String"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
 	<typedef path="haxe.io.ArrayBufferViewData" params="" file="/usr/local/lib/haxe/std/js/_std/haxe/io/ArrayBufferView.hx" module="haxe.io.ArrayBufferView"><c path="js.lib.ArrayBufferView"/></typedef>
 	<abstract path="haxe.io.ArrayBufferView" params="" file="/usr/local/lib/haxe/std/js/_std/haxe/io/ArrayBufferView.hx">
 		<this><t path="haxe.io.ArrayBufferViewData"/></this>
@@ -1289,11 +1560,61 @@
 	<meta><m n=":keep"/></meta>
 </class></impl>
 	</abstract>
-	<class path="haxe.io.Bytes" params="" file="/usr/local/lib/haxe/std/js/_std/haxe/io/Bytes.hx"><meta>
-	<m n=":keep"/>
-	<m n=":coreApi"/>
-</meta></class>
+	<class path="haxe.io.Bytes" params="" file="/usr/local/lib/haxe/std/js/_std/haxe/io/Bytes.hx">
+		<ofData public="1" set="method" line="243" static="1">
+			<f a="b">
+				<t path="haxe.io.BytesData"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Returns the `Bytes` representation of the given `BytesData`.</haxe_doc>
+		</ofData>
+		<length public="1" set="null"><x path="Int"/></length>
+		<b><c path="js.lib.Uint8Array"/></b>
+		<getString public="1" set="method" line="134">
+			<f a="pos:len:?encoding">
+				<x path="Int"/>
+				<x path="Int"/>
+				<e path="haxe.io.Encoding"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the `len`-bytes long string stored at the given position `pos`,
+		interpreted with the given `encoding` (UTF-8 by default).</haxe_doc>
+		</getString>
+		<new set="method" line="32">
+			<f a="data">
+				<t path="haxe.io.BytesData"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</new>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
 	<typedef path="haxe.io.BytesData" params="" file="/usr/local/lib/haxe/std/haxe/io/BytesData.hx"><c path="js.lib.ArrayBuffer"/></typedef>
+	<enum path="haxe.io.Encoding" params="" file="/usr/local/lib/haxe/std/haxe/io/Encoding.hx">
+		<UTF8/>
+		<RawNative><haxe_doc>Output the string the way the platform represent it in memory. This is the most efficient but is platform-specific</haxe_doc></RawNative>
+		<haxe_doc>String binary encoding supported by Haxe I/O</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":flatEnum"/>
+		</meta>
+	</enum>
+	<enum path="haxe.io.Error" params="" file="/usr/local/lib/haxe/std/haxe/io/Error.hx">
+		<Blocked><haxe_doc>The IO is set into nonblocking mode and some data cannot be read or written</haxe_doc></Blocked>
+		<Overflow><haxe_doc>An integer value is outside its allowed range</haxe_doc></Overflow>
+		<OutsideBounds><haxe_doc>An operation on Bytes is outside of its valid range</haxe_doc></OutsideBounds>
+		<Custom a="e">
+			<d/>
+			<haxe_doc>Other errors</haxe_doc>
+		</Custom>
+		<haxe_doc>The possible IO errors that can occur</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</enum>
 	<typedef path="haxe.io.Float32ArrayData" params="" file="/usr/local/lib/haxe/std/js/_std/haxe/io/Float32Array.hx" module="haxe.io.Float32Array"><c path="js.lib.Float32Array"/></typedef>
 	<abstract path="haxe.io.Float32Array" params="" file="/usr/local/lib/haxe/std/js/_std/haxe/io/Float32Array.hx">
 		<this><t path="haxe.io.Float32ArrayData"/></this>
@@ -2652,6 +2973,10 @@
 	<x path="htmlHelper.tools.AnAttribute"/>
 </f></parseAttribute>
 	</class>
+	<class path="htmlHelper.tools.CSV" params="" file="src/htmlHelper/tools/CSV.hx"><parse public="1" get="inline" set="null" line="6" static="1"><f a="str">
+	<c path="String"/>
+	<c path="Array"><c path="Array"><c path="String"/></c></c>
+</f></parse></class>
 	<class path="htmlHelper.tools.CharacterInput" params="" file="src/htmlHelper/tools/CharacterInput.hx">
 		<commandSignal public="1"><f a=""><x path="Void"/></f></commandSignal>
 		<navSignal public="1"><f a=""><x path="Void"/></f></navSignal>
@@ -2780,6 +3105,70 @@
 		<new public="1" set="method" line="12"><f a="imageNames:loaded_">
 	<c path="Array"><c path="String"/></c>
 	<f a=""><x path="Void"/></f>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<class path="htmlHelper.tools.StringCodeIterator" params="" file="src/htmlHelper/tools/StringCodeIterator.hx">
+		<str expr="&quot;&quot;">
+			<c path="String"/>
+			<meta><m n=":value"><e>""</e></m></meta>
+		</str>
+		<b><c path="StringBuf"/></b>
+		<pos public="1"><x path="Int"/></pos>
+		<c public="1"><x path="Int"/></c>
+		<last2 public="1"><c path="String"/></last2>
+		<last public="1"><c path="String"/></last>
+		<length public="1"><x path="Int"/></length>
+		<addChar public="1" get="inline" set="null" line="17"><f a=""><x path="Void"/></f></addChar>
+		<toStr public="1" get="inline" set="null" line="21"><f a=""><c path="String"/></f></toStr>
+		<isRepeat public="1" get="inline" set="null" line="27"><f a=""><x path="Bool"/></f></isRepeat>
+		<resetBuffer public="1" get="inline" set="null" line="33"><f a=""><x path="Void"/></f></resetBuffer>
+		<reset public="1" get="inline" set="null" line="37"><f a=""><x path="Void"/></f></reset>
+		<hasNext public="1" get="inline" set="null" line="41"><f a=""><x path="Bool"/></f></hasNext>
+		<next public="1" get="inline" set="null" line="45"><f a=""><x path="Int"/></f></next>
+		<new public="1" set="method" line="11">
+			<f a="str_:?pos_" v=":0">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ pos_ : 0 }</e></m></meta>
+		</new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="htmlHelper.tools.TextLoader" params="" file="src/htmlHelper/tools/TextLoader.hx">
+		<contents public="1"><c path="haxe.ds.StringMap"><c path="String"/></c></contents>
+		<loaded><f a=""><x path="Void"/></f></loaded>
+		<itemLoaded><f a="">
+	<c path="String"/>
+	<x path="Void"/>
+</f></itemLoaded>
+		<count><x path="Int"/></count>
+		<reload public="1" set="method" line="14"><f a="fileNames:loaded_:?itemLoaded_">
+	<c path="Array"><c path="String"/></c>
+	<f a=""><x path="Void"/></f>
+	<f a="">
+		<c path="String"/>
+		<x path="Void"/>
+	</f>
+	<x path="Void"/>
+</f></reload>
+		<load set="method" line="21"><f a="file">
+	<c path="String"/>
+	<x path="Void"/>
+</f></load>
+		<store set="method" line="27"><f a="name:data">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></store>
+		<new public="1" set="method" line="11"><f a="fileNames:loaded_:?itemLoaded_">
+	<c path="Array"><c path="String"/></c>
+	<f a=""><x path="Void"/></f>
+	<f a="">
+		<c path="String"/>
+		<x path="Void"/>
+	</f>
 	<x path="Void"/>
 </f></new>
 	</class>
@@ -3220,6 +3609,52 @@
 			<m n=":keep"/>
 			<m n=":directlyUsed"/>
 			<m n=":dox"><e>hide</e></m>
+		</meta>
+	</class>
+	<class path="js.Browser" params="" file="/usr/local/lib/haxe/std/js/Browser.hx">
+		<window public="1" get="null" set="null" static="1">
+			<c path="js.html.Window"/>
+			<haxe_doc>The global window object.</haxe_doc>
+		</window>
+		<document public="1" get="null" set="null" static="1">
+			<c path="js.html.HTMLDocument"/>
+			<haxe_doc>Shortcut to Window.document.</haxe_doc>
+		</document>
+		<location public="1" get="null" set="null" static="1">
+			<c path="js.html.Location"/>
+			<haxe_doc>Shortcut to Window.location.</haxe_doc>
+		</location>
+		<navigator public="1" get="null" set="null" static="1">
+			<c path="js.html.Navigator"/>
+			<haxe_doc>Shortcut to Window.navigator.</haxe_doc>
+		</navigator>
+		<console public="1" get="null" set="null" static="1">
+			<c path="js.html.ConsoleInstance"/>
+			<haxe_doc>Shortcut to Window.console.</haxe_doc>
+		</console>
+		<supported public="1" get="null" set="null" static="1">
+			<x path="Bool"/>
+			<haxe_doc>* True if a window object exists, false otherwise.
+	 *
+	 * This can be used to check if the code is being executed in a non-browser
+	 * environment such as node.js.</haxe_doc>
+		</supported>
+		<createXMLHttpRequest public="1" set="method" line="112" static="1">
+			<f a=""><c path="js.html.XMLHttpRequest"/></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>* Creates an XMLHttpRequest, with a fallback to ActiveXObject for ancient versions of Internet
+	 * Explorer.</haxe_doc>
+		</createXMLHttpRequest>
+		<alert public="1" get="inline" set="null" line="125" static="1">
+			<f a="v">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Display an alert message box containing the given message. See also `Window.alert()`.</haxe_doc>
+		</alert>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
 		</meta>
 	</class>
 	<class path="js.html.EventTarget" params="" file="/usr/local/lib/haxe/std/js/html/EventTarget.hx" extern="1">
@@ -5144,7 +5579,10 @@
 	Documentation [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/Blob$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
 
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/Blob>]]></haxe_doc>
-		<meta><m n=":native"><e>"Blob"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Blob"</e></m>
+		</meta>
 	</class>
 	<typedef path="js.html.BlobPropertyBag" params="" file="/usr/local/lib/haxe/std/js/html/BlobPropertyBag.hx"><a>
 	<type>
@@ -20749,7 +21187,10 @@
 	Documentation [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
 
 	@see <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest>]]></haxe_doc>
-		<meta><m n=":native"><e>"XMLHttpRequest"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"XMLHttpRequest"</e></m>
+		</meta>
 	</class>
 	<abstract path="js.html.XMLHttpRequestResponseType" params="" file="/usr/local/lib/haxe/std/js/html/XMLHttpRequestResponseType.hx">
 		<this><c path="String"/></this>
@@ -32189,7 +32630,10 @@
 	methods, or using standard array index syntax (that is, using bracket notation).
 
 	Documentation [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
-		<meta><m n=":native"><e>"Uint8Array"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Uint8Array"</e></m>
+		</meta>
 	</class>
 	<class path="js.lib.DataView" params="" file="/usr/local/lib/haxe/std/js/lib/DataView.hx" extern="1">
 		<implements path="js.lib.ArrayBufferView"/>

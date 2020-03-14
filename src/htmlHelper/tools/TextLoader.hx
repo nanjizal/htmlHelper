@@ -8,7 +8,7 @@ class TextLoader{
     var loaded: Void -> Void;
     var itemLoaded: String -> Void;
     var count: Int;
-    public function new( fileNames: Array<String>, loaded_: Void -> Void, ?itemLoaded: String -> Void ){
+    public function new( fileNames: Array<String>, loaded_: Void -> Void, ?itemLoaded_: String -> Void ){
         reload( fileNames, loaded_, itemLoaded_ );
     }
     public function reload( fileNames: Array<String>, loaded_: Void -> Void, ?itemLoaded_: String -> Void ){

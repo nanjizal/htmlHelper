@@ -14,13 +14,13 @@ class CSV {
         while( sl.hasNext() ){
             switch( sl.c ){
                 case '\n'.code | '\r'.code:
-                    arr[ no++ ] = arrTepm.copy();
+                    arr[ no++ ] = arrTemp.copy();
                     count = 0;
                     sl.resetBuffer();
                 case ','.code: // case comma
                     switch( count ){
                         case 0:
-                            arrTemp.length = 0;
+                            arrTemp.resize( 0 );
                             arrTemp[0] = sl.toStr();
                         default:
                             arrTemp[ count ] = sl.toStr();
