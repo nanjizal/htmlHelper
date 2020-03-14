@@ -14,6 +14,7 @@ class CSV {
         while( sl.hasNext() ){
             switch( sl.c ){
                 case '\n'.code | '\r'.code:
+                    arrTemp[ count ] = sl.toStr();
                     arr[ no++ ] = arrTemp.copy();
                     count = 0;
                     sl.resetBuffer();
