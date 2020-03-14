@@ -4,7 +4,7 @@
   "license": "MIT",
   "tags": ["canvas","svg","WebGL","javascript"],
   "description": "htmlHelper provides abstracts and setups to help with html",
-  "version": "0.0.2-alpha",  
+  "version": "0.0.3-alpha",  
   "releasenote": "See https://github.com/nanjizal/htmlHelper/blob/master/readme.md",
   "classPath"    : "src",
   "contributors": ["Nanjizal"],
