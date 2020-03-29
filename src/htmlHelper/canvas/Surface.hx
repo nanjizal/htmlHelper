@@ -14,6 +14,7 @@ class CanvasPlus {
         this.me = me;
     }
 }
+@:forward
 abstract Surface( CanvasPlus ){
     public inline
     function new( canvasPlus: CanvasPlus ){
