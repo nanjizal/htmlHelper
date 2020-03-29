@@ -15,7 +15,7 @@ class CanvasPlus {
     }
 }
 @:forward
-abstract Surface( CanvasPlus ){
+abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
     public inline
     function new( canvasPlus: CanvasPlus ){
         this = canvasPlus;
