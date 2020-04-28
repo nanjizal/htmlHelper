@@ -185,10 +185,15 @@ class WebGLSetup {
      **/
     public function render(){
         gl.clearColor( bgRed, bgGreen, bgBlue, bgAlpha );
+        //gl.clearColor(1, 1, 1, 1);
+        gl.colorMask(false, false, false, true);
         if( DEPTH_TEST ) gl.enable( RenderingContext.DEPTH_TEST );
+        gl.depthMask(false);
+        gl.enable(RenderingContext.BLEND);
         if( CULL_FACE )  gl.enable( RenderingContext.CULL_FACE ); 
         if( BACK )       gl.cullFace( RenderingContext.BACK );
         //gl.disable(RenderingContext.CULL_FACE);
+        gl.blendFunc(RenderingContext.ONE, RenderingContext.ONE_MINUS_SRC_ALPHA);
         
         gl.clear( RenderingContext.COLOR_BUFFER_BIT );
         gl.viewport( 0, 0, canvas.width, canvas.height );

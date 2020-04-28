@@ -1971,9 +1971,12 @@
 		<meta><m n=":structInit"/></meta>
 	</class>
 	<abstract path="htmlHelper.canvas.Surface" params="" file="src/htmlHelper/canvas/Surface.hx">
+		<from><icast><c path="htmlHelper.canvas.CanvasPlus"/></icast></from>
 		<this><c path="htmlHelper.canvas.CanvasPlus"/></this>
+		<to><icast><c path="htmlHelper.canvas.CanvasPlus"/></icast></to>
+		<meta><m n=":forward"/></meta>
 		<impl><class path="htmlHelper.canvas._Surface.Surface_Impl_" params="" file="src/htmlHelper/canvas/Surface.hx" private="1" module="htmlHelper.canvas.Surface">
-	<_new public="1" get="inline" set="null" line="18" static="1">
+	<_new public="1" get="inline" set="null" line="19" static="1">
 		<f a="canvasPlus">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="htmlHelper.canvas.Surface"/>
@@ -1983,7 +1986,7 @@
 			<m n=":noCompletion"/>
 		</meta>
 	</_new>
-	<lineStyle public="1" get="inline" set="null" line="22" static="1">
+	<lineStyle public="1" get="inline" set="null" line="23" static="1">
 		<f a="this:wid:col:?alpha">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="Float"/>
@@ -1993,7 +1996,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</lineStyle>
-	<beginFill public="1" get="inline" set="null" line="34" static="1">
+	<beginFill public="1" get="inline" set="null" line="35" static="1">
 		<f a="this:col:?alpha">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="Int"/>
@@ -2002,14 +2005,14 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</beginFill>
-	<endFill public="1" get="inline" set="null" line="46" static="1">
+	<endFill public="1" get="inline" set="null" line="47" static="1">
 		<f a="this">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="Void"/>
 		</f>
 		<meta><m n=":impl"/></meta>
 	</endFill>
-	<moveTo public="1" get="inline" set="null" line="52" static="1">
+	<moveTo public="1" get="inline" set="null" line="53" static="1">
 		<f a="this:x:y">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="Float"/>
@@ -2018,7 +2021,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</moveTo>
-	<lineTo public="1" get="inline" set="null" line="58" static="1">
+	<lineTo public="1" get="inline" set="null" line="59" static="1">
 		<f a="this:x:y">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="Float"/>
@@ -2027,7 +2030,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</lineTo>
-	<midBezier get="inline" set="null" line="64" static="1">
+	<midBezier get="inline" set="null" line="65" static="1">
 		<f a="this:s:c:e">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="Float"/>
@@ -2037,7 +2040,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</midBezier>
-	<quadThru public="1" get="inline" set="null" line="68" static="1">
+	<quadThru public="1" get="inline" set="null" line="69" static="1">
 		<f a="this:x1:y1:x2:y2">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="Float"/>
@@ -2048,7 +2051,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</quadThru>
-	<quadTo public="1" get="inline" set="null" line="75" static="1">
+	<quadTo public="1" get="inline" set="null" line="76" static="1">
 		<f a="this:x1:y1:x2:y2">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="Float"/>
@@ -2059,7 +2062,7 @@
 		</f>
 		<meta><m n=":impl"/></meta>
 	</quadTo>
-	<curveTo public="1" get="inline" set="null" line="82" static="1">
+	<curveTo public="1" get="inline" set="null" line="83" static="1">
 		<f a="this:x1:y1:x2:y2:x3:y3">
 			<c path="htmlHelper.canvas.CanvasPlus"/>
 			<x path="Float"/>
@@ -2075,7 +2078,7 @@
 </class></impl>
 	</abstract>
 	<class path="htmlHelper.canvas._Surface.Surface_Impl_" params="" file="src/htmlHelper/canvas/Surface.hx" private="1" module="htmlHelper.canvas.Surface">
-		<_new public="1" get="inline" set="null" line="18" static="1">
+		<_new public="1" get="inline" set="null" line="19" static="1">
 			<f a="canvasPlus">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="htmlHelper.canvas.Surface"/>
@@ -2085,7 +2088,7 @@
 				<m n=":noCompletion"/>
 			</meta>
 		</_new>
-		<lineStyle public="1" get="inline" set="null" line="22" static="1">
+		<lineStyle public="1" get="inline" set="null" line="23" static="1">
 			<f a="this:wid:col:?alpha">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="Float"/>
@@ -2095,7 +2098,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</lineStyle>
-		<beginFill public="1" get="inline" set="null" line="34" static="1">
+		<beginFill public="1" get="inline" set="null" line="35" static="1">
 			<f a="this:col:?alpha">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="Int"/>
@@ -2104,14 +2107,14 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</beginFill>
-		<endFill public="1" get="inline" set="null" line="46" static="1">
+		<endFill public="1" get="inline" set="null" line="47" static="1">
 			<f a="this">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":impl"/></meta>
 		</endFill>
-		<moveTo public="1" get="inline" set="null" line="52" static="1">
+		<moveTo public="1" get="inline" set="null" line="53" static="1">
 			<f a="this:x:y">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="Float"/>
@@ -2120,7 +2123,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</moveTo>
-		<lineTo public="1" get="inline" set="null" line="58" static="1">
+		<lineTo public="1" get="inline" set="null" line="59" static="1">
 			<f a="this:x:y">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="Float"/>
@@ -2129,7 +2132,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</lineTo>
-		<midBezier get="inline" set="null" line="64" static="1">
+		<midBezier get="inline" set="null" line="65" static="1">
 			<f a="this:s:c:e">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="Float"/>
@@ -2139,7 +2142,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</midBezier>
-		<quadThru public="1" get="inline" set="null" line="68" static="1">
+		<quadThru public="1" get="inline" set="null" line="69" static="1">
 			<f a="this:x1:y1:x2:y2">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="Float"/>
@@ -2150,7 +2153,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</quadThru>
-		<quadTo public="1" get="inline" set="null" line="75" static="1">
+		<quadTo public="1" get="inline" set="null" line="76" static="1">
 			<f a="this:x1:y1:x2:y2">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="Float"/>
@@ -2161,7 +2164,7 @@
 			</f>
 			<meta><m n=":impl"/></meta>
 		</quadTo>
-		<curveTo public="1" get="inline" set="null" line="82" static="1">
+		<curveTo public="1" get="inline" set="null" line="83" static="1">
 			<f a="this:x1:y1:x2:y2:x3:y3">
 				<c path="htmlHelper.canvas.CanvasPlus"/>
 				<x path="Float"/>
@@ -3202,7 +3205,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>* like ShaderInput but setup for indices.</haxe_doc>
 		</passIndicesToShader>
-		<shaderFromString public="1" get="inline" set="null" line="203" static="1">
+		<shaderFromString public="1" get="inline" set="null" line="208" static="1">
 			<f a="gl:shaderType:shaderString">
 				<c path="js.html.webgl.RenderingContext"/>
 				<x path="Int"/>
@@ -3211,7 +3214,7 @@
 			</f>
 			<haxe_doc>* converts a shader string to a shader and compiles it.</haxe_doc>
 		</shaderFromString>
-		<createShaderProgram public="1" get="inline" set="null" line="215" static="1">
+		<createShaderProgram public="1" get="inline" set="null" line="220" static="1">
 			<f a="gl:vertex:fragment">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.webgl.Shader"/>
@@ -3220,7 +3223,7 @@
 			</f>
 			<haxe_doc>* helper to create a shader program given a vertex and fragment shader.</haxe_doc>
 		</createShaderProgram>
-		<shaderInput public="1" params="T" get="inline" set="null" line="227" static="1">
+		<shaderInput public="1" params="T" get="inline" set="null" line="232" static="1">
 			<f a="gl:program:name:att:arr:number">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.webgl.Program"/>
@@ -3233,7 +3236,7 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>* links shader input to buffer and program</haxe_doc>
 		</shaderInput>
-		<uploadDataToBuffers public="1" get="inline" set="null" line="248" static="1">
+		<uploadDataToBuffers public="1" get="inline" set="null" line="253" static="1">
 			<f a="gl:program:vertices:colors:?texture">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.webgl.Program"/>
@@ -3244,7 +3247,7 @@
 			</f>
 			<haxe_doc>*  connects array data to shaders - vertices, colors and optional textures.</haxe_doc>
 		</uploadDataToBuffers>
-		<uploadImage public="1" get="inline" set="null" line="258" static="1">
+		<uploadImage public="1" get="inline" set="null" line="263" static="1">
 			<f a="gl:image">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.Image"/>
@@ -3253,14 +3256,14 @@
 			<haxe_doc>* Basic function to upload and link an image to a shader program 
      * TODO: Requires more generalization and testing.</haxe_doc>
 		</uploadImage>
-		<toRGB public="1" get="inline" set="null" line="285" static="1">
+		<toRGB public="1" get="inline" set="null" line="290" static="1">
 			<f a="int">
 				<x path="Int"/>
 				<t path="htmlHelper.webgl.RGB"/>
 			</f>
 			<haxe_doc>* splits Int into r,g,b object.</haxe_doc>
 		</toRGB>
-		<ident public="1" get="inline" set="null" line="296" static="1">
+		<ident public="1" get="inline" set="null" line="301" static="1">
 			<f a=""><x path="haxe.io.Float32Array"/></f>
 			<haxe_doc>* provides an identity 4x4 matrix as Float32Array for shader transform</haxe_doc>
 		</ident>
