@@ -98,6 +98,7 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
         lineTo( bx, by );
         lineTo( cx, cy );
         endFill();
+        return 1;
     }
     public inline
     function triangle2DFillandAlpha( ax: Float, ay: Float
@@ -109,5 +110,6 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
         lineTo( bx, by );
         lineTo( cx, cy );
         endFill();
+        return 1;
     }
 }
