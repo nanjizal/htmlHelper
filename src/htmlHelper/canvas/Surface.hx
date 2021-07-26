@@ -92,6 +92,17 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
     function triangle2DFill( ax: Float, ay: Float
                            , bx: Float, by: Float
                            , cx: Float, cy: Float
+                           , color: Null<Int> ): Int {
+        beginFill( color );
+        moveTo( ax, ay );
+        lineTo( bx, by );
+        lineTo( cx, cy );
+        endFill();
+    }
+    public inline
+    function triangle2DFillandAlpha( ax: Float, ay: Float
+                           , bx: Float, by: Float
+                           , cx: Float, cy: Float
                            , color: Null<Int>, ?alpha: Null<Float> ): Int {
         beginFill( color, alpha );
         moveTo( ax, ay );
