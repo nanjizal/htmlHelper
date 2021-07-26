@@ -88,4 +88,15 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
         this.x = x2;
         this.y = x2;
     }
+    public inline
+    function triangle2DFill( ax: Float, ay: Float
+                           , bx: Float, by: Float
+                           , cx: Float, cy: Float
+                           , color: Null<Int>, ?alpha: Null<Float> ): Int {
+        beginFill( color, alpha );
+        moveTo( ax, ay );
+        lineTo( bx, by );
+        lineTo( cx, cy );
+        endFill();
+    }
 }
