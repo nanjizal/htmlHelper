@@ -94,6 +94,7 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
                            , cx: Float, cy: Float
                            , color: Null<Int> ): Int {
         beginFill( color );
+        lineStyle( 0.0, color );
         moveTo( ax, ay );
         lineTo( bx, by );
         lineTo( cx, cy );
@@ -106,6 +107,7 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
                            , cx: Float, cy: Float
                            , color: Null<Int>, ?alpha: Null<Float> ): Int {
         beginFill( color, alpha );
+        lineStyle( 0.0, color, alpha );
         moveTo( ax, ay );
         lineTo( bx, by );
         lineTo( cx, cy );
