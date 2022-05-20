@@ -26,7 +26,7 @@ class CodeLocation{
     }
     public static
     function create( posInfos: haxe.PosInfos, count: Int = 0  ): CodeLocation {
-        var codeLocation = { count, posInfos.fileName, posInofs.lineNumber, posInfos.className, posInfos.methodName, posInfo.customParams };
+        var codeLocation = { count, posInfos.fileName, posInfos.lineNumber, posInfos.className, posInfos.methodName, posInfos.customParams };
         return codeLocation;
     }
 }
