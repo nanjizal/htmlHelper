@@ -60,10 +60,12 @@ class DivertTrace{
              }
              break;
          }
+        /*
          if( !exists ){
              myTrace( d, pos );
              arrCount[ arrCount.length ] = CodeLocation.create( pos );
          }
+*/
     }
     function divertTrace( left: Float, d: DivElement ){
         if( d == null ) {
