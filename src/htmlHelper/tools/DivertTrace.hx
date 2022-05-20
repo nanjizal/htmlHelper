@@ -8,7 +8,7 @@ class CodeLocation{
     public var lineNumber:Int;
     public var className:String;
     public var methodName:String;
-    public var ?customParams:Array<Dynamic>;
+    public var customParams:Array<Dynamic>;
     public
     function new( count: Int
                        , fileName: String
