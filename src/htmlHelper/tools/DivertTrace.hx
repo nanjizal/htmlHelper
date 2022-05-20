@@ -24,7 +24,7 @@ class CodeLocation{
         this.methodName   = methodName;
         this.customParams = customParams;
     }
-    public static inline
+    public static
     function create( posInfos: haxe.PosInfos, count: Int = 0  ): CodeLocation {
         var codeLocation = { count, posInfos.fileName, posInofs.lineNumber, posInfos.className, posInfos.methodName, posInfo.customParams };
         return codeLocation;
