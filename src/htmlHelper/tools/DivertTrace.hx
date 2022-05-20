@@ -24,9 +24,9 @@ class CodeLocation{
         this.methodName   = methodName;
         this.customParams = customParams;
     }
-    public static
+    public inline static
     function create( posInfos: haxe.PosInfos, count: Int = 0  ): CodeLocation {
-        var codeLocation = { count, posInfos.fileName, posInfos.lineNumber, posInfos.className, posInfos.methodName, posInfos.customParams };
+        var codeLocation = new CodeLocation( count, posInfos.fileName, posInfos.lineNumber, posInfos.className, posInfos.methodName, posInfos.customParams );
         return codeLocation;
     }
 }
@@ -60,12 +60,12 @@ class DivertTrace{
              }
              break;
          }
-        /*
+        
          if( !exists ){
              myTrace( d, pos );
              arrCount[ arrCount.length ] = CodeLocation.create( pos );
          }
-*/
+
     }
     function divertTrace( left: Float, d: DivElement ){
         if( d == null ) {
