@@ -48,7 +48,7 @@ class DivertTrace{
         if( arrCount.length == 0 ){
             arrCount[ 0 ] = CodeLocation.create( pos );
         }
-        for( i in 0...arr.length ){
+        for( i in 0...arrCount.length ){
             v = arrCount[ i ];
             if( v.fileName   == pos.fileName 
              && v.lineNumber == pos.lineNumber ){
