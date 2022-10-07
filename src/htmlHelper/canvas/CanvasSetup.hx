@@ -1,4 +1,4 @@
-package cornerContourSamples.hxCanvas;
+package htmlHelper.canvas;
 
 // html setup code
 import js.Browser;
