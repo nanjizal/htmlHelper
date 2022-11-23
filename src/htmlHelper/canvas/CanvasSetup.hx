@@ -22,7 +22,7 @@ class CanvasSetup {
         style.background = 'black';
         Browser.document.body.appendChild( cast canvasWrapper );
         surface = new Surface({ x: 10, y: 10, me: canvasWrapper.getContext2d() });
-        overSampleCanvas( canvas );
+        overSampleCanvas();
     }
     function overSampleCanvas(){
       var ctx = surface.me;
