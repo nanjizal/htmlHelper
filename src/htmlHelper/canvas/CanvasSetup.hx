@@ -10,6 +10,7 @@ class CanvasSetup {
     public var canvasWrapper:  CanvasWrapper;
     public var surface:        Surface;
     public var divertTrace:    DivertTrace;
+    public var factor = 4.;
     public
     function new(){
         divertTrace = new DivertTrace();
@@ -21,10 +22,11 @@ class CanvasSetup {
         style.background = 'black';
         Browser.document.body.appendChild( cast canvas );
         surface = new Surface({ x: 10, y: 10, me: canvas.getContext2d() });
-        var factor = 4.;
-        overSampleCanvas( canvas, surface.me, factor );
+        overSampleCanvas();
     }
-    function overSampleCanvas( canvas, ctx, factor: Float ) {
+    function overSampleCanvas(){
+      var ctx = surface.me;
+      var canvas = canvasWrapper;
       var width = canvas.width;
       var height = canvas.height;
       canvas.width = 0 | Std.int(width * factor);
@@ -32,5 +34,11 @@ class CanvasSetup {
       canvas.style.width = width + 'px';
       canvas.style.height = height + 'px';
       ctx.scale( factor, factor );
+    }
+    public inline
+    function clear(){
+        var ctx = surface.me;
+        ctx.clearRect( 0, 0, canvas.width, canvas.height );
+        overSampleCanvas( canvas, surface.me, factor );
     }
 }
