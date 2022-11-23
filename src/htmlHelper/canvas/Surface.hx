@@ -57,9 +57,7 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
         this.me.stroke();
         this.me.closePath();
         this.me.fill();
-    }
-    public inline beginContour(){
-        
+    }    
     public inline
     function moveTo( x: Float, y: Float ): Void {
         this.x = x;
