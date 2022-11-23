@@ -19,6 +19,14 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
     public inline
     function new( canvasPlus: CanvasPlus ){
         this = canvasPlus;
+        // default line color to Coral so shows on black or white and is not common choice.
+        // to make sure lines are drawn if no fill used.
+        lineStyle( 1, 0xFF7F50, 1. );
+    }
+    // after line if no fill needs calling.
+    public inline
+    function endLines(){
+        this.me.stroke();
     }
     public inline
     function lineStyle( wid: Float, col: Int, ?alpha: Float ){
@@ -50,6 +58,8 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
         this.me.closePath();
         this.me.fill();
     }
+    public inline beginContour(){
+        
     public inline
     function moveTo( x: Float, y: Float ): Void {
         this.x = x;
