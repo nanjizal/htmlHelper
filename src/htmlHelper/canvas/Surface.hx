@@ -23,6 +23,11 @@ abstract Surface( CanvasPlus ) to CanvasPlus from CanvasPlus {
         // to make sure lines are drawn if no fill used.
         lineStyle( 1, 0xFF7F50, 1. );
     }
+    // may not be needed, just incase needs to be called.
+    public inline
+    function beginLines(){
+        this.me.beginPath();
+    }
     // after line if no fill needs calling.
     public inline
     function endLines(){
