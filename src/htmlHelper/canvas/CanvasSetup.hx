@@ -12,7 +12,7 @@ class CanvasSetup {
     public var divertTrace:    DivertTrace;
     public var factor = 4.;
     public
-    function new(){
+    function new( ?allowOverSample = true ){
         divertTrace = new DivertTrace();
         canvasWrapper = new CanvasWrapper();
         canvasWrapper.width  = 1024;
@@ -22,9 +22,12 @@ class CanvasSetup {
         style.background = 'black';
         Browser.document.body.appendChild( cast canvasWrapper );
         surface = new Surface({ x: 10, y: 10, me: canvasWrapper.getContext2d() });
-        overSampleCanvas();
+        var me: js.html.CanvasRenderingContext2D = surface.me;
+        //me.imageSmoothingEnabled = true;
+        //untyped me.imageSmoothingQuality = 'high';
+        if( allowOverSample ) overSampleCanvas();
     }
-    function overSampleCanvas(){
+    public function overSampleCanvas(){
       var ctx = surface.me;
       var canvas = canvasWrapper;
       var width = canvas.width;
